@@ -198,7 +198,7 @@ with st.sidebar:
     demo_guard = st.button("🛡 反例演示：校验器拦截", use_container_width=True,
                            help="展示越界序列与违规笔记如何被工具层 / 校验器拦截")
     st.divider()
-    st.caption("密钥仅从本地 `.env` 读取，界面与日志均不展示。")
+    st.caption("密钥仅从本地 `.env` 或 Streamlit Secrets 读取，界面与日志均不展示。")
 
 os.environ["DEMO_MODE"] = mode_val
 
@@ -215,7 +215,7 @@ state_phases = st.session_state.get("phases") or {
 hero(effective_mode, settings.model if effective_mode == "live" else "OfflineLLM（确定性）", state_phases)
 
 if mode_val == "live" and effective_mode == "offline":
-    st.warning("未检测到可用的 `INTERNLM_API_KEY` / `INTERNLM_BASE_URL`，已自动回落到离线模式。请在 `.env` 中配置后重试。")
+    st.warning("未检测到可用的 `INTERNLM_API_KEY` / `INTERNLM_BASE_URL`，已自动回落到离线模式。本地请在 `.env` 中配置；在线部署请在 Streamlit 应用设置 → Secrets 中填写 `INTERNLM_API_KEY` 后重启应用。")
 
 goal = st.text_area("🎯 科研目标（中文自然语言即可）", value=presets[preset], height=96)
 run = st.button("▶  启动闭环", type="primary", use_container_width=True)

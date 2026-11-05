@@ -71,6 +71,16 @@ def _env_int(name: str, default: int) -> int:
 def load_settings() -> Settings:
     mode = os.getenv("DEMO_MODE", "offline").strip().lower()
     api_key = os.getenv("INTERNLM_API_KEY", "").strip()
+    if not api_key:
+        # Streamlit Cloud 部署：密钥填在应用 Settings → Secrets
+        #（.streamlit/secrets.toml），不经过 .env；本地/CLI 无 secrets
+        # 时静默跳过，仍走离线。环境变量优先，Secrets 只作回退。
+        try:
+            import streamlit as st
+
+            api_key = str(st.secrets.get("INTERNLM_API_KEY", "") or "").strip()
+        except Exception:
+            pass
     base_url = (os.getenv("INTERNLM_BASE_URL", "").strip() or "https://chat.intern-ai.org.cn/api/v1")
     model = (os.getenv("INTERNLM_MODEL", "").strip() or "intern-s2")
     # 默认 120s：实测 LIVE 最慢一步（写整篇笔记）32.5s，120s 是约 3.7 倍余量；

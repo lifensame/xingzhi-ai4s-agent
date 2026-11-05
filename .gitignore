@@ -13,3 +13,4 @@ venv/
 !outputs/sample_live_lab_note.md
 !outputs/sample_live_lab_note_100.md
 !outputs/latest_lab_note.md
+.streamlit/secrets.toml
