@@ -1,0 +1,15 @@
+
+*.pyc
+.DS_Store
+.env
+.pytest_cache/
+.token_raw
+.venv/
+__pycache__/
+outputs/*.md
+venv/
+!outputs/.gitkeep
+!outputs/sample_lab_note.md
+!outputs/sample_live_lab_note.md
+!outputs/sample_live_lab_note_100.md
+!outputs/latest_lab_note.md

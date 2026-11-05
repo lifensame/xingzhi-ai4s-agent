@@ -1,0 +1,13 @@
+# Streamlit 主题与浏览器配置。
+# 自定义 CSS 按深色设计；若跟随系统浅色渲染，标题渐变（白→绿）在浅底上几乎看不见，
+# 故强制深色主题。gatherUsageStats 关闭可避免离线环境下 data.streamlit.io 请求失败刷控制台报错。
+[theme]
+base = "dark"
+primaryColor = "#6EE7B7"
+backgroundColor = "#0B0F14"
+secondaryBackgroundColor = "#151B24"
+textColor = "#E2E8F0"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false

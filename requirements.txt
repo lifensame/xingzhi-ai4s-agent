@@ -1,0 +1,9 @@
+# LIVE 模式需要 openai；offline Demo 仅用标准库即可跑通（建议仍安装以便切换）
+# UI 需要 streamlit + pandas（图表）
+openai==3.45.0
+python-dotenv==1.2.4
+streamlit==1.66.1
+pandas==3.1.1
+# P2-2 MCP 封装：官方 MCP Python SDK v2（mcp==2.3.0 已实测；v2 把 FastMCP 更名为
+# MCPServer，见 src/xingzhi_agent/mcp_server.py）。离线 demo 不依赖本包。
+mcp==2.3.0

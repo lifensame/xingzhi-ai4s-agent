@@ -1,0 +1,2102 @@
+{
+  "description": "真实文献语料，来自 Europe PMC 公开 REST API；由 scripts/fetch_corpus.py 生成，可重新抓取验证。",
+  "provenance": {
+    "source": "Europe PMC REST API (https://www.ebi.ac.uk/europepmc/webservices/rest/search)",
+    "license": "Europe PMC 开放检索接口；摘要版权归原出版方，此处仅存片段用于演示检索",
+    "fetched_at_utc": "2026-11-04T16:50:58+00:00",
+    "script": "scripts/fetch_corpus.py",
+    "topics": {
+      "EGFR_nanobody": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "VHH_engineering": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "minibinder_design": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "ESMFold_structure": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "alphafold_interface_metrics": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "pH_dependent_binders": "(\"pH-dependent\" AND (antibody OR binder OR affinity)) AND (HAS_ABSTRACT:Y)",
+      "nanobody_expression": "((nanobody OR VHH) AND (expression OR solubility OR aggregation)) AND (HAS_ABSTRACT:Y)",
+      "cdr3_repertoire": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)"
+    },
+    "per_topic": 8,
+    "paper_count": 52,
+    "report": [
+      {
+        "topic": "EGFR_nanobody",
+        "ok": true,
+        "n": 7
+      },
+      {
+        "topic": "VHH_engineering",
+        "ok": true,
+        "n": 7
+      },
+      {
+        "topic": "minibinder_design",
+        "ok": true,
+        "n": 8
+      },
+      {
+        "topic": "ESMFold_structure",
+        "ok": true,
+        "n": 8
+      },
+      {
+        "topic": "alphafold_interface_metrics",
+        "ok": true,
+        "n": 8
+      },
+      {
+        "topic": "pH_dependent_binders",
+        "ok": true,
+        "n": 3
+      },
+      {
+        "topic": "nanobody_expression",
+        "ok": true,
+        "n": 3
+      },
+      {
+        "topic": "cdr3_repertoire",
+        "ok": true,
+        "n": 8
+      }
+    ],
+    "corpus_sha256": "6d58293fe538a6a2cb9dbf5a859f87f90ef502ee24339a40cb95d5f42c07a64a"
+  },
+  "papers": [
+    {
+      "title": "Simultaneous solubility-enhancing domain removal and target purification using the Npu split intein",
+      "authors": [
+        "Mayone S",
+        "Napier SK",
+        "Adomanis R",
+        "Baines E",
+        "Patel DT",
+        "Loeffler JC",
+        "Sharma R",
+        "Gonzalez-Serrano MS"
+      ],
+      "year": 2027,
+      "venue": "",
+      "doi": "10.1016/j.pep.2026.106988",
+      "pmid": "42546824",
+      "url": "https://doi.org/10.1016/j.pep.2026.106988",
+      "citations": 0,
+      "abstract": "While protein A has become a reliable platform for purifying antibodies, an analogous universal purification method for native non-antibody therapeutics has yet to be widely implemented. Downstream processing of recombinant proteins that require a solubility-enhancing domain (SED) for acceptable expression in E. coli are additionally complicated by required proteolytic cleavage for SED removal. This work demonstrates that the Nostoc punctiforme (Npu) DnaE split intein platform can be used for simultaneous purification and SED removal for challenging target proteins. Targets selected for this work include human fibroblast growth factor-2, interleukin-2, and an anti-CTLA-4 nanobody. Each targe…",
+      "topic": "nanobody_expression",
+      "query": "((nanobody OR VHH) AND (expression OR solubility OR aggregation)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P001",
+      "keywords": [
+        "Npu",
+        "Simultaneous",
+        "domain",
+        "intein",
+        "purification",
+        "removal",
+        "solubility-enhancing",
+        "split",
+        "target"
+      ],
+      "key_findings": [
+        "While protein A has become a reliable platform for purifying antibodies, an analogous universal purification method for native non-antibody therapeutics has yet to be widely implemented.",
+        "Downstream processing of recombinant proteins that require a solubility-enhancing domain (SED) for acceptable expression in E.",
+        "coli are additionally complicated by required proteolytic cleavage for SED removal."
+      ]
+    },
+    {
+      "title": "Prediction of antibody non-specificity using protein language models and biophysical parameters",
+      "authors": [
+        "Sakhnini LI",
+        "Beltrame L",
+        "Fulle S",
+        "Sormanni P",
+        "Henriksen A",
+        "Lorenzen N",
+        "Vendruscolo M",
+        "Granata D."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2678000",
+      "pmid": "42200306",
+      "url": "https://doi.org/10.1080/19420862.2026.2678000",
+      "citations": 3,
+      "abstract": "The development of therapeutic antibodies requires optimizing target binding affinity and pharmacodynamics, while ensuring high developability potential, including minimizing non-specific binding. In this study, we address this problem by predicting antibody non-specificity by two complementary approaches: (1) antibody sequence embeddings by protein language models (PLMs) and (2) a comprehensive set of sequence-based biophysical descriptors. We benchmark the PLM embeddings against interpretable, sequence-derived biophysical descriptors and use fragment-specific models (variable heavy (VH) and variable light (VL) chains, concatenated regions, and individual complementary-determining regions (…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P002",
+      "keywords": [
+        "Prediction",
+        "antibody",
+        "biophysical",
+        "language",
+        "models",
+        "non-specificity",
+        "parameters",
+        "protein"
+      ],
+      "key_findings": [
+        "The development of therapeutic antibodies requires optimizing target binding affinity and pharmacodynamics, while ensuring high developability potential, including minimizing non-specific binding.",
+        "In this study, we address this problem by predicting antibody non-specificity by two complementary approaches: (1) antibody sequence embeddings by protein language models (PLMs) and (2) a comprehensive set of sequence-based biophysical descriptors.",
+        "We benchmark the PLM embeddings against interpretable, sequence-derived biophysical descriptors and use fragment-specific models (variable heavy (VH) and variable light (VL) chains, concatenated regions, and individual complementary-determining regions (…"
+      ]
+    },
+    {
+      "title": "Application of protein language models for antibody developability prediction",
+      "authors": [
+        "Amini S",
+        "Huang Y",
+        "Julian M",
+        "Palmer C",
+        "Sciabola S",
+        "Wang Y."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2647489",
+      "pmid": "41860336",
+      "url": "https://doi.org/10.1080/19420862.2026.2647489",
+      "citations": 3,
+      "abstract": "Protein language models (PLMs) provide a powerful framework for learning sequence - property relationships in antibodies. However, their performance and reliability in real-world industrial antibody discovery pipelines remain underexplored. Here, we systematically evaluate several state-of-the-art PLMs using internal datasets comprising antibody sequences and developability assay measurements from 33 historical therapeutic programs. The assays span three critical developability dimensions: polyspecificity reagent (PSR), hydrophobic interaction chromatography (HIC), and affinity-capture self-interaction nanoparticle spectroscopy (AC-SINS). Across all assays, domain-adaptive fine-tuning of PLM…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P003",
+      "keywords": [
+        "Application",
+        "antibody",
+        "developability",
+        "language",
+        "models",
+        "prediction",
+        "protein"
+      ],
+      "key_findings": [
+        "Protein language models (PLMs) provide a powerful framework for learning sequence - property relationships in antibodies.",
+        "However, their performance and reliability in real-world industrial antibody discovery pipelines remain underexplored.",
+        "Here, we systematically evaluate several state-of-the-art PLMs using internal datasets comprising antibody sequences and developability assay measurements from 33 historical therapeutic programs."
+      ]
+    },
+    {
+      "title": "Immunogenomic landscape of the T cell repertoire after human lung transplantation and its clinical relevance",
+      "authors": [
+        "Jiao W",
+        "Shen Y",
+        "Long KD",
+        "Young T",
+        "Bay Muntnich C",
+        "Prada Rey A",
+        "Khwajazadah M",
+        "Wang JH"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.ajt.2026.06.009",
+      "pmid": "42309217",
+      "url": "https://doi.org/10.1016/j.ajt.2026.06.009",
+      "citations": 2,
+      "abstract": "Long-term lung transplant survival is limited by rejection and infection, processes governed by T cells, the posttransplant dynamics of which are poorly defined. Using flow cytometry and T cell receptor (TCR) sequencing of serial bronchoalveolar lavage (BAL) and peripheral blood samples, we monitored T cell chimerism, phenotypes, and clonotypic dynamics in a small cohort of lung transplant recipients. We identified alloreactive clones via mixed lymphocyte reaction/TCR sequence pairing and microbial-reactive clones via database matching. We found a recipient-derived tissue-resident memory T cell repertoire progressively established in BAL, stabilized by preexisting, multitissue-shared clones.…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P004",
+      "keywords": [
+        "Immunogenomic",
+        "after",
+        "cell",
+        "clinical",
+        "human",
+        "its",
+        "landscape",
+        "lung",
+        "relevance",
+        "repertoire",
+        "transplantation"
+      ],
+      "key_findings": [
+        "Long-term lung transplant survival is limited by rejection and infection, processes governed by T cells, the posttransplant dynamics of which are poorly defined.",
+        "Using flow cytometry and T cell receptor (TCR) sequencing of serial bronchoalveolar lavage (BAL) and peripheral blood samples, we monitored T cell chimerism, phenotypes, and clonotypic dynamics in a small cohort of lung transplant recipients.",
+        "We identified alloreactive clones via mixed lymphocyte reaction/TCR sequence pairing and microbial-reactive clones via database matching."
+      ]
+    },
+    {
+      "title": "Attenuating ETEC virulence using a heat-labile enterotoxin-blocking binding protein",
+      "authors": [
+        "Petersson M",
+        "Pettersen JS",
+        "Henriksen HB",
+        "Duzs Á",
+        "Fernández-Quintero ML",
+        "Burlet NJ",
+        "Mojica N",
+        "Krengel U"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19490976.2025.2597567",
+      "pmid": "41414904",
+      "url": "https://doi.org/10.1080/19490976.2025.2597567",
+      "citations": 1,
+      "abstract": "Bacterial enteric pathogens are major contributors to the global burden of diarrheal diseases and the associated consequences for human health including malnutrition, growth stunting, morbidity, and mortality. While mortality from diarrhea has decreased, incidence remains high, and better interventions for preventing disease are needed. Single-domain antibodies (i.e., VHHs), functioning as target-binding proteins in the gastrointestinal tract, have been proposed as a potential approach to mitigate bacterial pathogenesis. Here, we describe a mitigation strategy where precision binding of a bivalent VHH to the receptor-binding B-pentamer of heat-labile enterotoxin aggregates the AB5 toxin and…",
+      "topic": "VHH_engineering",
+      "query": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P005",
+      "keywords": [
+        "Attenuating",
+        "ETEC",
+        "binding",
+        "enterotoxin-blocking",
+        "heat-labile",
+        "protein",
+        "virulence"
+      ],
+      "key_findings": [
+        "Bacterial enteric pathogens are major contributors to the global burden of diarrheal diseases and the associated consequences for human health including malnutrition, growth stunting, morbidity, and mortality.",
+        "While mortality from diarrhea has decreased, incidence remains high, and better interventions for preventing disease are needed.",
+        "Single-domain antibodies (i.e., VHHs), functioning as target-binding proteins in the gastrointestinal tract, have been proposed as a potential approach to mitigate bacterial pathogenesis."
+      ]
+    },
+    {
+      "title": "Validation and analysis of 12,000 AI-driven CAR-T designs in the Bits to Binders competition",
+      "authors": [
+        "Kosonocky CW",
+        "Abel AM",
+        "Feller AL",
+        "Cifuentes Rieffer AE",
+        "Woolley PR",
+        "Lála J",
+        "Barth DR",
+        "Gardner T"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1038/s44320-026-00246-1",
+      "pmid": "42850288",
+      "url": "https://doi.org/10.1038/s44320-026-00246-1",
+      "citations": 1,
+      "abstract": "Artificial intelligence (AI) methods for proteins have advanced rapidly, improving structure prediction and design, particularly for de novo binders. However, most evaluations emphasize binding affinity rather than higher-order biological function. We present Bits to Binders, a global competition evaluating de novo binder design in the context of chimeric antigen receptor (CAR) T cells. Teams from 42 countries submitted 12,000 designs of 80-amino acid de novo minibinders targeting human CD20 as CAR binding domains. Designs were screened by pooled CAR-T proliferation, identifying 707 designs exhibiting significant CD20-specific enrichment, with team hit rates from 0.6% to 38.4%. Top-performin…",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P006",
+      "keywords": [
+        "AI-driven",
+        "Binders",
+        "Bits",
+        "CAR-T",
+        "Validation",
+        "analysis",
+        "competition",
+        "designs"
+      ],
+      "key_findings": [
+        "Artificial intelligence (AI) methods for proteins have advanced rapidly, improving structure prediction and design, particularly for de novo binders.",
+        "However, most evaluations emphasize binding affinity rather than higher-order biological function.",
+        "We present Bits to Binders, a global competition evaluating de novo binder design in the context of chimeric antigen receptor (CAR) T cells."
+      ]
+    },
+    {
+      "title": "Structure-function analysis of empasiprubart, a calcium- and pH-dependent clinical phase complement C2 blocking antibody",
+      "authors": [
+        "Bracke L",
+        "Gytz Olesen H",
+        "Pannecoucke E",
+        "Delahaye T",
+        "Persson EK",
+        "Blanchetot C",
+        "de Haard H",
+        "Hack CE"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2666430",
+      "pmid": "42080322",
+      "url": "https://doi.org/10.1080/19420862.2026.2666430",
+      "citations": 1,
+      "abstract": "Empasiprubart (ARGX-117) is a humanized recycling antibody that prevents binding of C2 to C4b, blocking downstream classical and lectin pathways of complement activation. Empasiprubart binds to the CCP2 domain of complement component C2 in a calcium- and pH-dependent manner, leveraging physiological differences between blood and endosomal environments to facilitate the release and subsequent degradation of bound C2. The molecule incorporates Fc region mutations (H433K and N434F) that enhance its affinity for the neonatal Fc receptor (FcRn) under acidic endosomal conditions, thereby prolonging its in vivo half-life and supporting its recycling capacity. However, despite the earlier descriptio…",
+      "topic": "pH_dependent_binders",
+      "query": "(\"pH-dependent\" AND (antibody OR binder OR affinity)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P007",
+      "keywords": [
+        "Structure-function",
+        "analysis",
+        "antibody",
+        "blocking",
+        "calcium-",
+        "clinical",
+        "complement",
+        "empasiprubart",
+        "pH-dependent",
+        "phase"
+      ],
+      "key_findings": [
+        "Empasiprubart (ARGX-117) is a humanized recycling antibody that prevents binding of C2 to C4b, blocking downstream classical and lectin pathways of complement activation.",
+        "Empasiprubart binds to the CCP2 domain of complement component C2 in a calcium- and pH-dependent manner, leveraging physiological differences between blood and endosomal environments to facilitate the release and subsequent degradation of bound C2.",
+        "The molecule incorporates Fc region mutations (H433K and N434F) that enhance its affinity for the neonatal Fc receptor (FcRn) under acidic endosomal conditions, thereby prolonging its in vivo half-life and supporting its recycling capacity."
+      ]
+    },
+    {
+      "title": "High-quantity capture of heterogeneous circulating tumor cells in vivo based on a multinanobody-functionalized carboxymethyl cellulose cryogel",
+      "authors": [
+        "Tai L",
+        "Wang H",
+        "Wang Y",
+        "Zeng F",
+        "He Z",
+        "Chen J",
+        "Shi Z",
+        "Jia L."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.mtbio.2026.103689",
+      "pmid": "42830976",
+      "url": "https://doi.org/10.1016/j.mtbio.2026.103689",
+      "citations": 0,
+      "abstract": "Circulating tumor cells (CTCs) carry multidimensional information from primary tumors, yet current separation strategies lead to insufficient quantity of cells available for robust downstream analyses. To address this issue, we propose an in-vivo capture strategy for high-quantity CTC enrichment based on a multinanobody-functionalized carboxymethyl cellulose cryogel (MNB-PAACcryo). By addressing the trade-off between pore size and mechanical property, the MNB-PAACcryo sets up a sieving barrier in the bloodstream. It allows free passage of blood cells through its interconnected macropores, while enhancing CTC-nanobody interactions, contributing to a high CTC capture efficiency of 72.3 ± 4.5%…",
+      "topic": "EGFR_nanobody",
+      "query": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P008",
+      "keywords": [
+        "High-quantity",
+        "based",
+        "capture",
+        "carboxymethyl",
+        "cells",
+        "cellulose",
+        "circulating",
+        "cryogel",
+        "heterogeneous",
+        "multinanobody-functionalized",
+        "tumor",
+        "vivo"
+      ],
+      "key_findings": [
+        "Circulating tumor cells (CTCs) carry multidimensional information from primary tumors, yet current separation strategies lead to insufficient quantity of cells available for robust downstream analyses.",
+        "To address this issue, we propose an in-vivo capture strategy for high-quantity CTC enrichment based on a multinanobody-functionalized carboxymethyl cellulose cryogel (MNB-PAACcryo).",
+        "By addressing the trade-off between pore size and mechanical property, the MNB-PAACcryo sets up a sieving barrier in the bloodstream."
+      ]
+    },
+    {
+      "title": "A modular nucleic acid-albumin biomolecular platform for multifunctional drug designs",
+      "authors": [
+        "Fuchs E",
+        "Dinesen A",
+        "Ong SC",
+        "Zhang Y",
+        "Anthi AK",
+        "Rudnik-Jansen I",
+        "Mandrup OA",
+        "Elkhashab M"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.jconrel.2026.115514",
+      "pmid": "42962825",
+      "url": "https://doi.org/10.1016/j.jconrel.2026.115514",
+      "citations": 0,
+      "abstract": "The nanomedicine field has seen a paradigm shift towards multifunctional drug designs to maximise drug efficacy. Assembly of functionalised oligonucleotide (ODN) modules onto an albumin scaffold is an attractive solution offering a technological advancement in albumin-based drug delivery we apply in this work for a T-Cell Engager (TCE) and Immune Checkpoint Inhibitor (ICI) immuno-oncology combination. The \"plug-and-play\" modular approach was used to incorporate an anti-programmed cell death protein ligand 1 (anti-PD-L1) nanobody-ODN module onto a bispecific anti-EGFR x anti-CD3 scFv-albumin TCE fusion. Cys34 ODN site-specific conjugation on albumin allowed subsequent base-driven annealing of…",
+      "topic": "EGFR_nanobody",
+      "query": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P009",
+      "keywords": [
+        "acid-albumin",
+        "biomolecular",
+        "designs",
+        "drug",
+        "modular",
+        "multifunctional",
+        "nucleic",
+        "platform"
+      ],
+      "key_findings": [
+        "The nanomedicine field has seen a paradigm shift towards multifunctional drug designs to maximise drug efficacy.",
+        "Assembly of functionalised oligonucleotide (ODN) modules onto an albumin scaffold is an attractive solution offering a technological advancement in albumin-based drug delivery we apply in this work for a T-Cell Engager (TCE) and Immune Checkpoint Inhibitor (ICI) immuno-oncology combination.",
+        "The \"plug-and-play\" modular approach was used to incorporate an anti-programmed cell death protein ligand 1 (anti-PD-L1) nanobody-ODN module onto a bispecific anti-EGFR x anti-CD3 scFv-albumin TCE fusion."
+      ]
+    },
+    {
+      "title": "Nanobody-fluorescent protein fusions for erasable immunostaining",
+      "authors": [
+        "Xu X",
+        "Kong Z",
+        "Su Z",
+        "Cheng C",
+        "Wan Y."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1039/d6an01102k",
+      "pmid": "42834728",
+      "url": "https://doi.org/10.1039/d6an01102k",
+      "citations": 0,
+      "abstract": "Immunofluorescence (IF) staining is widely used to visualize biomolecules in cells and tissues. Conventional IF typically relies on fluorophore-conjugated antibodies, whose preparation requires chemical modification procedures that can compromise antibody performance and incur product loss during subsequent purification. In addition, iterative immunostaining depends on harsh stripping or fluorescence-quenching treatments that may damage sample architecture and epitope integrity. Here, we present protease-cleavable nanobody-fluorescent protein fusions (NFPFs) for reversible IF staining. Unlike fluorophore-labeled antibodies, NFPFs are genetically encoded and can be produced without post-synth…",
+      "topic": "EGFR_nanobody",
+      "query": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P010",
+      "keywords": [
+        "Nanobody-fluorescent",
+        "erasable",
+        "fusions",
+        "immunostaining",
+        "protein"
+      ],
+      "key_findings": [
+        "Immunofluorescence (IF) staining is widely used to visualize biomolecules in cells and tissues.",
+        "Conventional IF typically relies on fluorophore-conjugated antibodies, whose preparation requires chemical modification procedures that can compromise antibody performance and incur product loss during subsequent purification.",
+        "In addition, iterative immunostaining depends on harsh stripping or fluorescence-quenching treatments that may damage sample architecture and epitope integrity."
+      ]
+    },
+    {
+      "title": "Llama mRNA-LNP immunization enables rapid isolation of target specific nanobodies using cell-based panning",
+      "authors": [
+        "Bélanger K",
+        "Callaghan D",
+        "Renner T",
+        "Azizi H",
+        "Hu J",
+        "Raphael S",
+        "Goneau MF",
+        "Hussack G"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1093/abt/tbag033",
+      "pmid": "42824824",
+      "url": "https://doi.org/10.1093/abt/tbag033",
+      "citations": 0,
+      "abstract": "BackgroundAs a clinical vaccine platform, lipid nanoparticle (LNP)-formulated mRNA has demonstrated potent and broad antibody responses, prompting speculation about its potential for antibody discovery. Membrane proteins remain among the most challenging targets for antibody development, highlighting the urgent need for technologies that preserve their native conformation during immunization and screening. Nanobodies (VHHs), the single-domain fragments of heavy-chain-only antibodies naturally found in camelids, offer unique advantages over conventional antibodies, including high solubility, stability, and the ability to access cryptic or membrane-proximal epitopes.MethodsHere, we report the…",
+      "topic": "EGFR_nanobody",
+      "query": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P011",
+      "keywords": [
+        "Llama",
+        "cell-based",
+        "enables",
+        "immunization",
+        "isolation",
+        "mRNA-LNP",
+        "nanobodies",
+        "panning",
+        "rapid",
+        "specific",
+        "target"
+      ],
+      "key_findings": [
+        "BackgroundAs a clinical vaccine platform, lipid nanoparticle (LNP)-formulated mRNA has demonstrated potent and broad antibody responses, prompting speculation about its potential for antibody discovery.",
+        "Membrane proteins remain among the most challenging targets for antibody development, highlighting the urgent need for technologies that preserve their native conformation during immunization and screening.",
+        "Nanobodies (VHHs), the single-domain fragments of heavy-chain-only antibodies naturally found in camelids, offer unique advantages over conventional antibodies, including high solubility, stability, and the ability to access cryptic or membrane-proximal epitopes.MethodsHere, we report the…"
+      ]
+    },
+    {
+      "title": "Antibody framework engineering enables augmented cytokine receptor signaling capacities of bispecific single domain antibody-based IL-21 mimetics",
+      "authors": [
+        "Lipinski B",
+        "Unmuth L",
+        "Tran THH",
+        "Harwood J",
+        "Arras P",
+        "Becker S",
+        "Harwardt J",
+        "Guarnera E"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2726042",
+      "pmid": "42683527",
+      "url": "https://doi.org/10.1080/19420862.2026.2726042",
+      "citations": 0,
+      "abstract": "In this work, we developed bispecific antibody (bsAb)-derived surrogate agonists which mimic the function of IL-21 by targeting the IL-21 receptor composed of IL-21 R (CD360) and IL-2 Rγ (CD132). For this, antigen-specific VHHs (variable domains of the heavy chain of heavy-chain-only antibodies) were obtained by immunization of camelids and isolated using yeast surface display. Combinatorial reformatting of IL-21 R-specific single‑domain antibodies (sdAbs) and IL-2 Rγ-targeting paratopes into a monovalent bispecific antibody architecture enabled the identification of IL-21 mimetics displaying attenuated capacities in triggering STAT3 phosphorylation compared to the wild-type cytokine as demo…",
+      "topic": "VHH_engineering",
+      "query": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P012",
+      "keywords": [
+        "Antibody",
+        "IL-21",
+        "antibody-based",
+        "augmented",
+        "bispecific",
+        "capacities",
+        "cytokine",
+        "domain",
+        "enables",
+        "engineering",
+        "framework",
+        "mimetics"
+      ],
+      "key_findings": [
+        "In this work, we developed bispecific antibody (bsAb)-derived surrogate agonists which mimic the function of IL-21 by targeting the IL-21 receptor composed of IL-21 R (CD360) and IL-2 Rγ (CD132).",
+        "For this, antigen-specific VHHs (variable domains of the heavy chain of heavy-chain-only antibodies) were obtained by immunization of camelids and isolated using yeast surface display.",
+        "Combinatorial reformatting of IL-21 R-specific single‑domain antibodies (sdAbs) and IL-2 Rγ-targeting paratopes into a monovalent bispecific antibody architecture enabled the identification of IL-21 mimetics displaying attenuated capacities in triggering STAT3 phosphorylation compared to the wild-type cytokine as demo…"
+      ]
+    },
+    {
+      "title": "RASP: rapid antibody functional screening by pentavalent phage display",
+      "authors": [
+        "Kaur M",
+        "Dubey A",
+        "Chandran K."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2627708",
+      "pmid": "41660941",
+      "url": "https://doi.org/10.1080/19420862.2026.2627708",
+      "citations": 0,
+      "abstract": "The heavy-chain antibody variable domain (VHH) is the smallest antigen-binding domain of such antibodies, which are derived from camelids. In the past three decades, VHHs, which are also called single-domain antibodies, have been extensively used to target pathogens and/or toxins. Conventional screening methods, such as phage display, rely only on antibody-antigen binding as the sole criterion for selection. Despite being robust and high-throughput, such methods often require additional downstream experiments to identify VHH that neutralize their target. Here, we describe an innovative, high-throughput functional screening method, Rapid Antibody functional Screening by Pentavalent phage disp…",
+      "topic": "VHH_engineering",
+      "query": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P013",
+      "keywords": [
+        "RASP",
+        "antibody",
+        "display",
+        "functional",
+        "pentavalent",
+        "phage",
+        "rapid",
+        "screening"
+      ],
+      "key_findings": [
+        "The heavy-chain antibody variable domain (VHH) is the smallest antigen-binding domain of such antibodies, which are derived from camelids.",
+        "In the past three decades, VHHs, which are also called single-domain antibodies, have been extensively used to target pathogens and/or toxins.",
+        "Conventional screening methods, such as phage display, rely only on antibody-antigen binding as the sole criterion for selection."
+      ]
+    },
+    {
+      "title": "A fibril-selective single-domain antibody targets pathogenic amyloid-β assemblies and protects human neurons",
+      "authors": [
+        "Greenlee MA",
+        "Amniouel S",
+        "Rivera I",
+        "Suh J",
+        "Martinez NJ",
+        "Simeonov A",
+        "Head E",
+        "Tycko R"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.isci.2026.117946",
+      "pmid": "42960253",
+      "url": "https://doi.org/10.1016/j.isci.2026.117946",
+      "citations": 0,
+      "abstract": "Alzheimer disease is characterized by extracellular amyloid-β deposition that contributes to neuronal dysfunction and degeneration. Although anti-amyloid-β antibodies reduce plaque burden, their use requires monitoring for amyloid-related imaging abnormalities. Here, phage display against immobilized Aβ40 fibrils representing a patient-relevant polymorph identified J8, a fibril-selective, Fc-free single-domain antibody. J8 bound fibrils with high apparent affinity, showed no detectable binding to monomeric Aβ40, decorated fibril surfaces, and recognized plaque-associated amyloid in Alzheimer disease brain tissue. During concurrent fibril exposure, J8 reduced apoptotic signaling in human indu…",
+      "topic": "VHH_engineering",
+      "query": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P014",
+      "keywords": [
+        "amyloid-",
+        "antibody",
+        "assemblies",
+        "fibril-selective",
+        "human",
+        "neurons",
+        "pathogenic",
+        "protects",
+        "single-domain",
+        "targets"
+      ],
+      "key_findings": [
+        "Alzheimer disease is characterized by extracellular amyloid-β deposition that contributes to neuronal dysfunction and degeneration.",
+        "Although anti-amyloid-β antibodies reduce plaque burden, their use requires monitoring for amyloid-related imaging abnormalities.",
+        "Here, phage display against immobilized Aβ40 fibrils representing a patient-relevant polymorph identified J8, a fibril-selective, Fc-free single-domain antibody."
+      ]
+    },
+    {
+      "title": "Programming biological behavior with AI-guided de novo protein design",
+      "authors": [
+        "Huettemann P",
+        "Kortemme T."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.molcel.2026.08.027",
+      "pmid": "42880220",
+      "url": "https://doi.org/10.1016/j.molcel.2026.08.027",
+      "citations": 0,
+      "abstract": "Driven by advances in artificial intelligence, de novo protein design can now generate diverse molecular functions from the ground up, achieving remarkable success in engineering binders against many macromolecular targets. Here, we provide a perspective on how de novo design can progress beyond bimolecular interactions toward the bottom-up construction of protein reaction networks. We highlight how programmable, modular, and controllable de novo components can drive complex, emergent biological behaviors. Overcoming current challenges-including designable protein dynamics, multi-step functionalities, and non-equilibrium systems-is essential for this transition. With continued foundational m…",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P015",
+      "keywords": [
+        "AI-guided",
+        "Programming",
+        "behavior",
+        "biological",
+        "design",
+        "novo",
+        "protein"
+      ],
+      "key_findings": [
+        "Driven by advances in artificial intelligence, de novo protein design can now generate diverse molecular functions from the ground up, achieving remarkable success in engineering binders against many macromolecular targets.",
+        "Here, we provide a perspective on how de novo design can progress beyond bimolecular interactions toward the bottom-up construction of protein reaction networks.",
+        "We highlight how programmable, modular, and controllable de novo components can drive complex, emergent biological behaviors."
+      ]
+    },
+    {
+      "title": "De Novo Design of a Protein Binder to Probe Gas Channel and Enhance the Oxygen Tolerance of [NiFe]-Hydrogenase",
+      "authors": [
+        "Sun X",
+        "Xiao Q",
+        "Zhang N",
+        "Li W",
+        "Luo H",
+        "Gao Y",
+        "Zhang L",
+        "Fan Y"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1002/anie.6395554",
+      "pmid": "42655993",
+      "url": "https://doi.org/10.1002/anie.6395554",
+      "citations": 0,
+      "abstract": "[NiFe]-Hydrogenases display remarkable catalytic efficiency for H2 production and oxidation but are sensitive to O2, which severely restricts their biotechnological applications. The identities and functional relevance of gas channels leading to the buried [NiFe] active site remain elusive, hindering rational enzyme engineering. Here, we introduce an artificial intelligence-guided de novo protein binder design strategy to map hydrophobic O2 diffusion pathways in Escherichia coli hydrogenase-2 (Hyd-2). By integrating RFdiffusion, ProteinMPNN, and AlphaFold, ∼100,000 candidate binders were computationally screened, yielding two high-affinity binders, L1 and L2. Biophysical and electrochemical…",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P016",
+      "keywords": [
+        "Binder",
+        "Channel",
+        "Design",
+        "Enhance",
+        "Gas",
+        "Hydrogenase",
+        "NiFe",
+        "Novo",
+        "Oxygen",
+        "Probe",
+        "Protein",
+        "Tolerance"
+      ],
+      "key_findings": [
+        "[NiFe]-Hydrogenases display remarkable catalytic efficiency for H2 production and oxidation but are sensitive to O2, which severely restricts their biotechnological applications.",
+        "The identities and functional relevance of gas channels leading to the buried [NiFe] active site remain elusive, hindering rational enzyme engineering.",
+        "Here, we introduce an artificial intelligence-guided de novo protein binder design strategy to map hydrophobic O2 diffusion pathways in Escherichia coli hydrogenase-2 (Hyd-2)."
+      ]
+    },
+    {
+      "title": "Degrading GPX4 via Biomimetic Nanoparticle-Mediated In Situ Synthesis of Deep-Learning-Designed Binder-Degron Chimeras for Prostate Cancer Therapy",
+      "authors": [
+        "Zhang SH",
+        "An Y",
+        "Zeng N",
+        "Liu MC",
+        "Sun JX",
+        "Gong X",
+        "Xu JZ",
+        "Wang SG"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1002/advs.77932",
+      "pmid": "42801636",
+      "url": "https://doi.org/10.1002/advs.77932",
+      "citations": 0,
+      "abstract": "Glutathione peroxidase 4 (GPX4) is a central guardian against ferroptosis and a critical therapeutic target for castration-resistant prostate cancer (CRPC). However, traditional GPX4 inhibitors are often limited by irreversible covalent binding and systemic toxicity. Here, we utilized the deep learning algorithm Bindcraft to design high-affinity de novo binders targeting GPX4. To achieve GPX4 degradation, we developed a novel modality termed binder-degron chimera (bdC), which integrates a de novo-designed binder with a C-terminal combinational degron. Mechanistically, bdC recruits the CUL2-RING E3 ubiquitin ligase complex, leading to proteasome-mediated GPX4 degradation. To circumvent the de…",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P017",
+      "keywords": [
+        "Binder-Degron",
+        "Biomimetic",
+        "Cancer",
+        "Chimeras",
+        "Deep-Learning-Designed",
+        "Degrading",
+        "GPX4",
+        "Nanoparticle-Mediated",
+        "Prostate",
+        "Situ",
+        "Synthesis",
+        "Therapy"
+      ],
+      "key_findings": [
+        "Glutathione peroxidase 4 (GPX4) is a central guardian against ferroptosis and a critical therapeutic target for castration-resistant prostate cancer (CRPC).",
+        "However, traditional GPX4 inhibitors are often limited by irreversible covalent binding and systemic toxicity.",
+        "Here, we utilized the deep learning algorithm Bindcraft to design high-affinity de novo binders targeting GPX4."
+      ]
+    },
+    {
+      "title": "CEM 2.0: Co-evolution-guided mining of superior extremophilic proteins via a curated proteome database and protein language model",
+      "authors": [
+        "Zhang Z",
+        "Ma L",
+        "Ding M",
+        "Xu P",
+        "Tao F."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.engmic.2026.100301",
+      "pmid": "42910295",
+      "url": "https://doi.org/10.1016/j.engmic.2026.100301",
+      "citations": 0,
+      "abstract": "Extremophilic proteins offer immense potential for diverse applications; however, their discovery is hindered by the reliance on predefined templates and domain-specific knowledge. Therefore, new methods are required to mine extremophilic proteins without relying on existing templates, enabling a comprehensive exploration of functional extremophilic proteins across the entire protein universe. Here, we propose a co-evolution-guided protein mining framework, CEM 2.0 (Co-Evolution Mining 2.0), comprising three synergistic components: (1) an extensive and diverse extremophilic proteome database covering six extremophilic features, (2) a multidimensional evaluator for six extremophilic features,…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P018",
+      "keywords": [
+        "CEM",
+        "Co-evolution-guided",
+        "curated",
+        "database",
+        "extremophilic",
+        "language",
+        "mining",
+        "model",
+        "protein",
+        "proteins",
+        "proteome",
+        "superior"
+      ],
+      "key_findings": [
+        "Extremophilic proteins offer immense potential for diverse applications; however, their discovery is hindered by the reliance on predefined templates and domain-specific knowledge.",
+        "Therefore, new methods are required to mine extremophilic proteins without relying on existing templates, enabling a comprehensive exploration of functional extremophilic proteins across the entire protein universe.",
+        "Here, we propose a co-evolution-guided protein mining framework, CEM 2.0 (Co-Evolution Mining 2.0), comprising three synergistic components: (1) an extensive and diverse extremophilic proteome database covering six extremophilic features, (2) a multidimensional evaluator for six extremophilic features,…"
+      ]
+    },
+    {
+      "title": "Seq2Pocket: augmenting protein language models for spatially consistent binding site prediction",
+      "authors": [
+        "Škrhák V",
+        "Polák L",
+        "Novotný M",
+        "Hoksza D."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1093/bioinformatics/btag778",
+      "pmid": "42886502",
+      "url": "https://doi.org/10.1093/bioinformatics/btag778",
+      "citations": 0,
+      "abstract": "MotivationProtein-ligand binding site prediction (LBS) is important for many areas of structural biology and molecular modeling, where, as in other tasks, protein language models (pLMs) have shown great promise. In their application to LBS, the pLM classifies each amino acid as binding or not, but translating these predictions into three-dimensional binding pockets remains challenging; in particular, residue-centric predictions tend to produce spatially fragmented pockets.ResultsWe present Seq2Pocket, a methodology for pocket-level LBS prediction that combines pLM finetuning, data enhancement, and structure-aware post-processing. First, we introduce sc-PDBenhanced, an extended training datas…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P019",
+      "keywords": [
+        "Seq2Pocket",
+        "augmenting",
+        "binding",
+        "consistent",
+        "language",
+        "models",
+        "prediction",
+        "protein",
+        "site",
+        "spatially"
+      ],
+      "key_findings": [
+        "MotivationProtein-ligand binding site prediction (LBS) is important for many areas of structural biology and molecular modeling, where, as in other tasks, protein language models (pLMs) have shown great promise.",
+        "In their application to LBS, the pLM classifies each amino acid as binding or not, but translating these predictions into three-dimensional binding pockets remains challenging; in particular, residue-centric predictions tend to produce spatially fragmented pockets.ResultsWe present Seq2Pocket, a methodology for pocket-level LBS prediction that combines pLM finetuning, data enhancement, and structure-aware post-processing.",
+        "First, we introduce sc-PDBenhanced, an extended training datas…"
+      ]
+    },
+    {
+      "title": "AlphaFold 3 prediction of TCR mimic Fv - pMHC complex structures and their validation and optimization",
+      "authors": [
+        "Sarkar A",
+        "Michael S",
+        "Wang Z",
+        "Ge X."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2719263",
+      "pmid": "42619491",
+      "url": "https://doi.org/10.1080/19420862.2026.2719263",
+      "citations": 0,
+      "abstract": "Monoclonal antibody-derived chimeric antigen receptors (CAR) that mimic T‑cell receptors (TCR) on binding to peptide-major histocompatibility complex (pMHC) and activating T‑cell functions hold great promise for the development of effective immunotherapy. This study applied AlphaFold 3 (AF3) to model the quaternary structures of TCR mimic antibody variable fragment (TCRm Fv) complexed with NY-ESO-1157-165/HLA-A*02:01. Benchmark study suggested that reliable TCRm Fv-pMHC structures were achieved by AF3 with high confidence. Toward NY-ESO-1/A2-specific CAR clones, AF3 prediction revealed their intermolecular geometry resembling the canonical TCR engagement, and binding avidity tests confirmed…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P020",
+      "keywords": [
+        "AlphaFold",
+        "TCR",
+        "complex",
+        "mimic",
+        "optimization",
+        "pMHC",
+        "prediction",
+        "structures",
+        "validation"
+      ],
+      "key_findings": [
+        "Monoclonal antibody-derived chimeric antigen receptors (CAR) that mimic T‑cell receptors (TCR) on binding to peptide-major histocompatibility complex (pMHC) and activating T‑cell functions hold great promise for the development of effective immunotherapy.",
+        "This study applied AlphaFold 3 (AF3) to model the quaternary structures of TCR mimic antibody variable fragment (TCRm Fv) complexed with NY-ESO-1157-165/HLA-A*02:01.",
+        "Benchmark study suggested that reliable TCRm Fv-pMHC structures were achieved by AF3 with high confidence."
+      ]
+    },
+    {
+      "title": "From structure prediction to ligand-target recognition: expanding the reach of AlphaFold in natural product research",
+      "authors": [
+        "Xu G",
+        "Hu H",
+        "Zhao W",
+        "Liu Z",
+        "Wang T",
+        "Liu R",
+        "Liu S."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1007/s13659-026-00654-8",
+      "pmid": "42972149",
+      "url": "https://doi.org/10.1007/s13659-026-00654-8",
+      "citations": 0,
+      "abstract": "Natural products constitute a structurally diverse reservoir of bioactive molecules and remain an important source of lead compounds for drug discovery. However, the limited availability of structural information on pharmacological targets and biomolecular interactions continues to hinder mechanism elucidation and structure-guided optimization, particularly for complex natural products such as bioactive peptides, proteinaceous natural products, and natural molecular glues. Recent advances in AlphaFold have transformed structural biology by enabling high-confidence prediction of protein structures and biomolecular complexes, providing unprecedented opportunities for structure-guided natural p…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P021",
+      "keywords": [
+        "AlphaFold",
+        "expanding",
+        "ligand-target",
+        "natural",
+        "prediction",
+        "product",
+        "reach",
+        "recognition",
+        "research",
+        "structure"
+      ],
+      "key_findings": [
+        "Natural products constitute a structurally diverse reservoir of bioactive molecules and remain an important source of lead compounds for drug discovery.",
+        "However, the limited availability of structural information on pharmacological targets and biomolecular interactions continues to hinder mechanism elucidation and structure-guided optimization, particularly for complex natural products such as bioactive peptides, proteinaceous natural products, and natural molecular glues.",
+        "Recent advances in AlphaFold have transformed structural biology by enabling high-confidence prediction of protein structures and biomolecular complexes, providing unprecedented opportunities for structure-guided natural p…"
+      ]
+    },
+    {
+      "title": "AlphaFold-based peptide structure prediction: Opportunities, limitations, and future directions",
+      "authors": [
+        "Zhang B",
+        "Zhu J",
+        "Chen HF",
+        "Liu LN."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.biotechadv.2026.108977",
+      "pmid": "42425235",
+      "url": "https://doi.org/10.1016/j.biotechadv.2026.108977",
+      "citations": 0,
+      "abstract": "Accurate prediction of peptide structures and peptide-receptor complexes is essential for rational peptide drug development. However, the inherent conformational flexibility of short and disordered peptides presents a fundamental challenge. The AlphaFold model series, which has progressed from AlphaFold2 through AlphaFold-Multimer to AlphaFold3, has substantially advanced computational peptide structure prediction through innovations in geometric reasoning (invariant point attention) and interface-focused confidence metrics (ipTM score), achieving high accuracy for both monomeric peptide structures and multi-chain complexes. However, these models output static conformations, whereas many bio…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P022",
+      "keywords": [
+        "AlphaFold-based",
+        "Opportunities",
+        "directions",
+        "future",
+        "limitations",
+        "peptide",
+        "prediction",
+        "structure"
+      ],
+      "key_findings": [
+        "Accurate prediction of peptide structures and peptide-receptor complexes is essential for rational peptide drug development.",
+        "However, the inherent conformational flexibility of short and disordered peptides presents a fundamental challenge.",
+        "The AlphaFold model series, which has progressed from AlphaFold2 through AlphaFold-Multimer to AlphaFold3, has substantially advanced computational peptide structure prediction through innovations in geometric reasoning (invariant point attention) and interface-focused confidence metrics (ipTM score), achieving high accuracy for both monomeric peptide structures and multi-chain complexes."
+      ]
+    },
+    {
+      "title": "Docking With Rosetta and Deep Learning Approaches in CAPRI Rounds 47-55",
+      "authors": [
+        "Harmalkar A",
+        "Chu LS",
+        "Canner SW",
+        "Samanta R",
+        "Frick R",
+        "Davila-Hernandez FA",
+        "Sarma S",
+        "Hitawala F"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1002/prot.70016",
+      "pmid": "40980933",
+      "url": "https://doi.org/10.1002/prot.70016",
+      "citations": 0,
+      "abstract": "Critical Assessment of PRediction of Interactions (CAPRI) rounds 47 through 55 introduced 49 targets comprising multistage assemblies, antibody-antigen complexes, and flexible interfaces. For these rounds, we combined various Rosetta docking approaches (RosettaDock, ReplicaDock, and SymDock) with deep learning approaches (AlphaFold2, IgFold, and AlphaRED). Since prior CAPRI rounds, we have developed methods to better capture conformational changes, updated our scoring function, and integrated structure prediction tools such as AlphaFold2 in our docking routines. Here, we highlight several notable CAPRI targets and address the major challenges in the blind prediction of protein-protein intera…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P023",
+      "keywords": [
+        "Approaches",
+        "CAPRI",
+        "Deep",
+        "Docking",
+        "Learning",
+        "Rosetta",
+        "Rounds"
+      ],
+      "key_findings": [
+        "Critical Assessment of PRediction of Interactions (CAPRI) rounds 47 through 55 introduced 49 targets comprising multistage assemblies, antibody-antigen complexes, and flexible interfaces.",
+        "For these rounds, we combined various Rosetta docking approaches (RosettaDock, ReplicaDock, and SymDock) with deep learning approaches (AlphaFold2, IgFold, and AlphaRED).",
+        "Since prior CAPRI rounds, we have developed methods to better capture conformational changes, updated our scoring function, and integrated structure prediction tools such as AlphaFold2 in our docking routines."
+      ]
+    },
+    {
+      "title": "Targeting BIGH3 in selected solid tumors through a pH-Dependent antibody engineering strategy",
+      "authors": [
+        "Aguéra K",
+        "Kassem S",
+        "Bachy S",
+        "Hearn A",
+        "Bembridge D",
+        "Masoudzadeh F",
+        "Palenzuela H",
+        "Dawaliby R"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1016/j.bbrep.2026.102769",
+      "pmid": "42959777",
+      "url": "https://doi.org/10.1016/j.bbrep.2026.102769",
+      "citations": 0,
+      "abstract": "Targeting highly abundant stromal antigens in solid tumors is often limited by antigen sink effects, which reduce therapeutic exposure and compromise efficacy. Transforming growth factor beta-induced protein ig-h3 (TGFBI/BIGH3) is a secreted extracellular matrix (ECM) protein overexpressed in multiple malignancies and involved in tumor progression and immune modulation, yet its high circulating levels present a major challenge for antibody-based targeting. Here, we report that structural characterization suggested an increased oligomerization of BIGH3 in the tumor microenvironment (TME)-mimicking conditions without detectable loss of antibody binding and affinity (Equilibrium dissociation co…",
+      "topic": "pH_dependent_binders",
+      "query": "(\"pH-dependent\" AND (antibody OR binder OR affinity)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P024",
+      "keywords": [
+        "BIGH3",
+        "Targeting",
+        "antibody",
+        "engineering",
+        "pH-Dependent",
+        "selected",
+        "solid",
+        "strategy",
+        "through",
+        "tumors"
+      ],
+      "key_findings": [
+        "Targeting highly abundant stromal antigens in solid tumors is often limited by antigen sink effects, which reduce therapeutic exposure and compromise efficacy.",
+        "Transforming growth factor beta-induced protein ig-h3 (TGFBI/BIGH3) is a secreted extracellular matrix (ECM) protein overexpressed in multiple malignancies and involved in tumor progression and immune modulation, yet its high circulating levels present a major challenge for antibody-based targeting.",
+        "Here, we report that structural characterization suggested an increased oligomerization of BIGH3 in the tumor microenvironment (TME)-mimicking conditions without detectable loss of antibody binding and affinity (Equilibrium dissociation co…"
+      ]
+    },
+    {
+      "title": "Peptide-Linked Bivalent Nanobody Constructs as Positive Allosteric Modulators of the Calcium-Sensing Receptor",
+      "authors": [
+        "Nabipour M",
+        "Skadhauge CH",
+        "Rasmussen LJ",
+        "Bräuner-Osborne H",
+        "Mathiesen JM",
+        "Jensen AA."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1111/bcpt.70320",
+      "pmid": "42951375",
+      "url": "https://doi.org/10.1111/bcpt.70320",
+      "citations": 0,
+      "abstract": "We previously developed nanobodies acting as positive allosteric modulators (PAMs) of the calcium-sensing receptor (CaSR). Here, we sought to develop more potent CaSR modulators by creating bivalent nanobody constructs using 'tail-to-head' peptide-linker conjugation. The constructs were functionally characterized at CaSR in HEK293 cells in a Ca2+ mobilization assay. Homobivalent Nb4-Nb4 and Nb10-Nb10 constructs with linkers comprising 3, 5, 6 or 9 GGGG(S/T) repeats all displayed CaSR PAM potencies comparable with those exhibited by their monovalent counterparts. Likewise, five heterobivalent nanobodies combining Nb4, Nb10, Nb11, Nb36 or Nb37 through [GGGG(S/T)]9 linkers exhibited PAM potenci…",
+      "topic": "nanobody_expression",
+      "query": "((nanobody OR VHH) AND (expression OR solubility OR aggregation)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P025",
+      "keywords": [
+        "Allosteric",
+        "Bivalent",
+        "Calcium-Sensing",
+        "Constructs",
+        "Modulators",
+        "Nanobody",
+        "Peptide-Linked",
+        "Positive",
+        "Receptor"
+      ],
+      "key_findings": [
+        "We previously developed nanobodies acting as positive allosteric modulators (PAMs) of the calcium-sensing receptor (CaSR).",
+        "Here, we sought to develop more potent CaSR modulators by creating bivalent nanobody constructs using 'tail-to-head' peptide-linker conjugation.",
+        "The constructs were functionally characterized at CaSR in HEK293 cells in a Ca2+ mobilization assay."
+      ]
+    },
+    {
+      "title": "Near pan-alphavirus neutralization by an antibody-nanobody bispecific",
+      "authors": [
+        "Pletnev S",
+        "Gardner CL",
+        "Sutton MS",
+        "Zhang B",
+        "Callahan V",
+        "Green C",
+        "Morano NC",
+        "Bylund T"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2731281",
+      "pmid": "42778504",
+      "url": "https://doi.org/10.1080/19420862.2026.2731281",
+      "citations": 0,
+      "abstract": "Alphaviruses represent a global concern, with some such as chikungunya virus currently infecting thousands in China and others such as Venezuelan equine encephalitis virus inducing neurological symptoms in 4-14% of infected individuals. A single antibody capable of protecting from all human-infecting alphaviruses, by achieving sufficient potency against each virus individually, may have high utility, as only a single therapeutic would then need to be stockpiled against this entire class of emerging pathogens. We previously identified an antibody, SKT05, with broad encephalitic alphavirus recognition, and we also identified nanobodies capable of neutralizing both arthritogenic and encephaliti…",
+      "topic": "nanobody_expression",
+      "query": "((nanobody OR VHH) AND (expression OR solubility OR aggregation)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P026",
+      "keywords": [
+        "Near",
+        "antibody-nanobody",
+        "bispecific",
+        "neutralization",
+        "pan-alphavirus"
+      ],
+      "key_findings": [
+        "Alphaviruses represent a global concern, with some such as chikungunya virus currently infecting thousands in China and others such as Venezuelan equine encephalitis virus inducing neurological symptoms in 4-14% of infected individuals.",
+        "A single antibody capable of protecting from all human-infecting alphaviruses, by achieving sufficient potency against each virus individually, may have high utility, as only a single therapeutic would then need to be stockpiled against this entire class of emerging pathogens.",
+        "We previously identified an antibody, SKT05, with broad encephalitic alphavirus recognition, and we also identified nanobodies capable of neutralizing both arthritogenic and encephaliti…"
+      ]
+    },
+    {
+      "title": "Peripheral B-cell receptor immunoglobulin heavy chain repertoire as a potential biomarker for frequently relapsing nephrotic syndrome in children",
+      "authors": [
+        "Feng A",
+        "Li X",
+        "Cheng J",
+        "Guan F."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/0886022x.2026.2698338",
+      "pmid": "42655963",
+      "url": "https://doi.org/10.1080/0886022x.2026.2698338",
+      "citations": 0,
+      "abstract": "BackgroundThis study aimed to investigate the distribution characteristics of the peripheral blood B cell receptor (BCR) repertoire immunoglobulin heavy chain (IGH) in children with frequently relapsing nephrotic syndrome (FRNS), explore its dynamic changes before and after glucocorticoid therapy, and evaluate its potential value as a biomarker for predicting FRNS.Methods35 newly diagnosed children with primary nephrotic syndrome (PNS) admitted to Xuzhou Medical University Affiliated Hospital from September 2024 to September 2025 were divided into the FRNS group (n = 20) and the NFRNS group (n = 15), and 15 healthy children were selected as the control group. High-throughput sequencing was u…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P027",
+      "keywords": [
+        "B-cell",
+        "Peripheral",
+        "biomarker",
+        "chain",
+        "children",
+        "frequently",
+        "heavy",
+        "immunoglobulin",
+        "nephrotic",
+        "potential",
+        "receptor",
+        "relapsing"
+      ],
+      "key_findings": [
+        "BackgroundThis study aimed to investigate the distribution characteristics of the peripheral blood B cell receptor (BCR) repertoire immunoglobulin heavy chain (IGH) in children with frequently relapsing nephrotic syndrome (FRNS), explore its dynamic changes before and after glucocorticoid therapy, and evaluate its potential value as a biomarker for predicting FRNS.Methods35 newly diagnosed children with primary nephrotic syndrome (PNS) admitted to Xuzhou Medical University Affiliated Hospital from September 2024 to September 2025 were divided into the FRNS group (n = 20) and the NFRNS group (n = 15), and 15 healthy children were selected as the control group."
+      ]
+    },
+    {
+      "title": "Tokenizing loops of antibodies",
+      "authors": [
+        "Fang A",
+        "Alberstein RG",
+        "Kelow S",
+        "Dreyer FA."
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1080/19420862.2026.2645271",
+      "pmid": "41936024",
+      "url": "https://doi.org/10.1080/19420862.2026.2645271",
+      "citations": 0,
+      "abstract": "The complementarity-determining regions (CDRs) of antibodies are loop structures that are key to their interactions with antigens and are of high importance to the design of novel biologics. Existing approaches for characterizing the diversity of CDRs have limited coverage and cannot be readily incorporated into protein foundation models. Here we introduce ImmunoGlobulin LOOp Tokenizer, Igloo, a multimodal antibody loop tokenizer that encodes backbone dihedral angles and sequence. Igloo is trained using a contrastive learning objective to map loops with similar backbone dihedral angles closer together in latent space. Compared to state-of-the-art protein encoding approaches, Igloo can effici…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P028",
+      "keywords": [
+        "Tokenizing",
+        "antibodies",
+        "loops"
+      ],
+      "key_findings": [
+        "The complementarity-determining regions (CDRs) of antibodies are loop structures that are key to their interactions with antigens and are of high importance to the design of novel biologics.",
+        "Existing approaches for characterizing the diversity of CDRs have limited coverage and cannot be readily incorporated into protein foundation models.",
+        "Here we introduce ImmunoGlobulin LOOp Tokenizer, Igloo, a multimodal antibody loop tokenizer that encodes backbone dihedral angles and sequence."
+      ]
+    },
+    {
+      "title": "Comprehensive Immune Repertoires of T Cell Receptor and B Cell Receptor Identify Key Immune Features Associated With Disease Activity of Systemic Lupus Erythematosus",
+      "authors": [
+        "Wu J",
+        "Zhou Z",
+        "Yu A",
+        "Lin X",
+        "Ren Y",
+        "Teng J",
+        "Zhu D",
+        "Wang F"
+      ],
+      "year": 2026,
+      "venue": "",
+      "doi": "10.1002/mco2.71087",
+      "pmid": "42921308",
+      "url": "https://doi.org/10.1002/mco2.71087",
+      "citations": 0,
+      "abstract": "We integrated immune repertoire sequencing (CD4+ and CD8+ T cell receptor [TCR], B cell receptor [BCR]) and transcriptional profiling to characterize the peripheral immune landscape in 32 active systemic lupus erythematosus (SLE) patients, 30 stable SLE patients, and 35 healthy donors. CD4+ and CD8+ TCR α- and β-chain repertoires in SLE patients showed lower diversity, reduced similarity, and more heterogeneous V-J usage, with CD8+ TCR profiles exhibiting relatively consistent stepwise changes across healthy, stable, and active groups. CD8+ T-cell transcriptomics revealed activity-associated upregulation of CD38, S100A11, IFITM3, and LAG3. In addition, BCR immunoglobulin heavy chain (IGH) re…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "recent",
+      "id": "P029",
+      "keywords": [
+        "Activity",
+        "Associated",
+        "Cell",
+        "Comprehensive",
+        "Disease",
+        "Erythematosus",
+        "Features",
+        "Identify",
+        "Immune",
+        "Key",
+        "Lupus",
+        "Receptor"
+      ],
+      "key_findings": [
+        "We integrated immune repertoire sequencing (CD4+ and CD8+ T cell receptor [TCR], B cell receptor [BCR]) and transcriptional profiling to characterize the peripheral immune landscape in 32 active systemic lupus erythematosus (SLE) patients, 30 stable SLE patients, and 35 healthy donors.",
+        "CD4+ and CD8+ TCR α- and β-chain repertoires in SLE patients showed lower diversity, reduced similarity, and more heterogeneous V-J usage, with CD8+ TCR profiles exhibiting relatively consistent stepwise changes across healthy, stable, and active groups.",
+        "CD8+ T-cell transcriptomics revealed activity-associated upregulation of CD38, S100A11, IFITM3, and LAG3."
+      ]
+    },
+    {
+      "title": "Accurate structure prediction of biomolecular interactions with AlphaFold 3",
+      "authors": [
+        "Abramson J",
+        "Adler J",
+        "Dunger J",
+        "Evans R",
+        "Green T",
+        "Pritzel A",
+        "Ronneberger O",
+        "Willmore L"
+      ],
+      "year": 2024,
+      "venue": "",
+      "doi": "10.1038/s41586-024-07487-w",
+      "pmid": "38718835",
+      "url": "https://doi.org/10.1038/s41586-024-07487-w",
+      "citations": 12534,
+      "abstract": "The introduction of AlphaFold 21 has spurred a revolution in modelling the structure of proteins and their interactions, enabling a huge range of applications in protein modelling and design2-6. Here we describe our AlphaFold 3 model with a substantially updated diffusion-based architecture that is capable of predicting the joint structure of complexes including proteins, nucleic acids, small molecules, ions and modified residues. The new AlphaFold model demonstrates substantially improved accuracy over many previous specialized tools: far greater accuracy for protein-ligand interactions compared with state-of-the-art docking tools, much higher accuracy for protein-nucleic acid interactions…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P030",
+      "keywords": [
+        "Accurate",
+        "AlphaFold",
+        "biomolecular",
+        "interactions",
+        "prediction",
+        "structure"
+      ],
+      "key_findings": [
+        "The introduction of AlphaFold 21 has spurred a revolution in modelling the structure of proteins and their interactions, enabling a huge range of applications in protein modelling and design2-6.",
+        "Here we describe our AlphaFold 3 model with a substantially updated diffusion-based architecture that is capable of predicting the joint structure of complexes including proteins, nucleic acids, small molecules, ions and modified residues.",
+        "The new AlphaFold model demonstrates substantially improved accuracy over many previous specialized tools: far greater accuracy for protein-ligand interactions compared with state-of-the-art docking tools, much higher accuracy for protein-nucleic acid interactions…"
+      ]
+    },
+    {
+      "title": "AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences",
+      "authors": [
+        "Varadi M",
+        "Bertoni D",
+        "Magana P",
+        "Paramval U",
+        "Pidruchna I",
+        "Radhakrishnan M",
+        "Tsenkov M",
+        "Nair S"
+      ],
+      "year": 2024,
+      "venue": "",
+      "doi": "10.1093/nar/gkad1011",
+      "pmid": "37933859",
+      "url": "https://doi.org/10.1093/nar/gkad1011",
+      "citations": 2017,
+      "abstract": "The AlphaFold Database Protein Structure Database (AlphaFold DB, https://alphafold.ebi.ac.uk) has significantly impacted structural biology by amassing over 214 million predicted protein structures, expanding from the initial 300k structures released in 2021. Enabled by the groundbreaking AlphaFold2 artificial intelligence (AI) system, the predictions archived in AlphaFold DB have been integrated into primary data resources such as PDB, UniProt, Ensembl, InterPro and MobiDB. Our manuscript details subsequent enhancements in data archiving, covering successive releases encompassing model organisms, global health proteomes, Swiss-Prot integration, and a host of curated protein datasets. We det…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P031",
+      "keywords": [
+        "AlphaFold",
+        "Database",
+        "Protein",
+        "Structure",
+        "coverage",
+        "million",
+        "over",
+        "protein",
+        "providing",
+        "sequences",
+        "structure"
+      ],
+      "key_findings": [
+        "The AlphaFold Database Protein Structure Database (AlphaFold DB, https://alphafold.ebi.ac.uk) has significantly impacted structural biology by amassing over 214 million predicted protein structures, expanding from the initial 300k structures released in 2021.",
+        "Enabled by the groundbreaking AlphaFold2 artificial intelligence (AI) system, the predictions archived in AlphaFold DB have been integrated into primary data resources such as PDB, UniProt, Ensembl, InterPro and MobiDB.",
+        "Our manuscript details subsequent enhancements in data archiving, covering successive releases encompassing model organisms, global health proteomes, Swiss-Prot integration, and a host of curated protein datasets."
+      ]
+    },
+    {
+      "title": "CADD v1.7: using protein language models, regulatory CNNs and other nucleotide-level scores to improve genome-wide variant predictions",
+      "authors": [
+        "Schubach M",
+        "Maass T",
+        "Nazaretyan L",
+        "Röner S",
+        "Kircher M."
+      ],
+      "year": 2024,
+      "venue": "",
+      "doi": "10.1093/nar/gkad989",
+      "pmid": "38183205",
+      "url": "https://doi.org/10.1093/nar/gkad989",
+      "citations": 442,
+      "abstract": "Machine Learning-based scoring and classification of genetic variants aids the assessment of clinical findings and is employed to prioritize variants in diverse genetic studies and analyses. Combined Annotation-Dependent Depletion (CADD) is one of the first methods for the genome-wide prioritization of variants across different molecular functions and has been continuously developed and improved since its original publication. Here, we present our most recent release, CADD v1.7. We explored and integrated new annotation features, among them state-of-the-art protein language model scores (Meta ESM-1v), regulatory variant effect predictions (from sequence-based convolutional neural networks) a…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P032",
+      "keywords": [
+        "CADD",
+        "CNNs",
+        "genome-wide",
+        "improve",
+        "language",
+        "models",
+        "nucleotide-level",
+        "other",
+        "predictions",
+        "protein",
+        "regulatory",
+        "scores"
+      ],
+      "key_findings": [
+        "Machine Learning-based scoring and classification of genetic variants aids the assessment of clinical findings and is employed to prioritize variants in diverse genetic studies and analyses.",
+        "Combined Annotation-Dependent Depletion (CADD) is one of the first methods for the genome-wide prioritization of variants across different molecular functions and has been continuously developed and improved since its original publication.",
+        "Here, we present our most recent release, CADD v1.7."
+      ]
+    },
+    {
+      "title": "Efficient evolution of human antibodies from general protein language models",
+      "authors": [
+        "Hie BL",
+        "Shanker VR",
+        "Xu D",
+        "Bruun TUJ",
+        "Weidenbacher PA",
+        "Tang S",
+        "Wu W",
+        "Pak JE"
+      ],
+      "year": 2024,
+      "venue": "",
+      "doi": "10.1038/s41587-023-01763-2",
+      "pmid": "37095349",
+      "url": "https://doi.org/10.1038/s41587-023-01763-2",
+      "citations": 423,
+      "abstract": "Natural evolution must explore a vast landscape of possible sequences for desirable yet rare mutations, suggesting that learning from natural evolutionary strategies could guide artificial evolution. Here we report that general protein language models can efficiently evolve human antibodies by suggesting mutations that are evolutionarily plausible, despite providing the model with no information about the target antigen, binding specificity or protein structure. We performed language-model-guided affinity maturation of seven antibodies, screening 20 or fewer variants of each antibody across only two rounds of laboratory evolution, and improved the binding affinities of four clinically releva…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P033",
+      "keywords": [
+        "Efficient",
+        "antibodies",
+        "evolution",
+        "general",
+        "human",
+        "language",
+        "models",
+        "protein"
+      ],
+      "key_findings": [
+        "Natural evolution must explore a vast landscape of possible sequences for desirable yet rare mutations, suggesting that learning from natural evolutionary strategies could guide artificial evolution.",
+        "Here we report that general protein language models can efficiently evolve human antibodies by suggesting mutations that are evolutionarily plausible, despite providing the model with no information about the target antigen, binding specificity or protein structure.",
+        "We performed language-model-guided affinity maturation of seven antibodies, screening 20 or fewer variants of each antibody across only two rounds of laboratory evolution, and improved the binding affinities of four clinically releva…"
+      ]
+    },
+    {
+      "title": "De novo design of protein structure and function with RFdiffusion",
+      "authors": [
+        "Watson JL",
+        "Juergens D",
+        "Bennett NR",
+        "Trippe BL",
+        "Yim J",
+        "Eisenach HE",
+        "Ahern W",
+        "Borst AJ"
+      ],
+      "year": 2023,
+      "venue": "",
+      "doi": "10.1038/s41586-023-06415-8",
+      "pmid": "37433327",
+      "url": "https://doi.org/10.1038/s41586-023-06415-8",
+      "citations": 1991,
+      "abstract": "There has been considerable recent progress in designing new proteins using deep-learning methods1-9. Despite this progress, a general deep-learning framework for protein design that enables solution of a wide range of design challenges, including de novo binder design and design of higher-order symmetric architectures, has yet to be described. Diffusion models10,11 have had considerable success in image and language generative modelling but limited success when applied to protein modelling, probably due to the complexity of protein backbone geometry and sequence-structure relationships. Here we show that by fine-tuning the RoseTTAFold structure prediction network on protein structure denois…",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P034",
+      "keywords": [
+        "RFdiffusion",
+        "design",
+        "function",
+        "novo",
+        "protein",
+        "structure"
+      ],
+      "key_findings": [
+        "There has been considerable recent progress in designing new proteins using deep-learning methods1-9.",
+        "Despite this progress, a general deep-learning framework for protein design that enables solution of a wide range of design challenges, including de novo binder design and design of higher-order symmetric architectures, has yet to be described.",
+        "Diffusion models10,11 have had considerable success in image and language generative modelling but limited success when applied to protein modelling, probably due to the complexity of protein backbone geometry and sequence-structure relationships."
+      ]
+    },
+    {
+      "title": "Genome-wide prediction of disease variant effects with a deep protein language model",
+      "authors": [
+        "Brandes N",
+        "Goldman G",
+        "Wang CH",
+        "Ye CJ",
+        "Ntranos V."
+      ],
+      "year": 2023,
+      "venue": "",
+      "doi": "10.1038/s41588-023-01465-0",
+      "pmid": "37563329",
+      "url": "https://doi.org/10.1038/s41588-023-01465-0",
+      "citations": 467,
+      "abstract": "Predicting the effects of coding variants is a major challenge. While recent deep-learning models have improved variant effect prediction accuracy, they cannot analyze all coding variants due to dependency on close homologs or software limitations. Here we developed a workflow using ESM1b, a 650-million-parameter protein language model, to predict all ~450 million possible missense variant effects in the human genome, and made all predictions available on a web portal. ESM1b outperformed existing methods in classifying ~150,000 ClinVar/HGMD missense variants as pathogenic or benign and predicting measurements across 28 deep mutational scan datasets. We further annotated ~2 million variants a…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P035",
+      "keywords": [
+        "Genome-wide",
+        "deep",
+        "disease",
+        "effects",
+        "language",
+        "model",
+        "prediction",
+        "protein",
+        "variant"
+      ],
+      "key_findings": [
+        "Predicting the effects of coding variants is a major challenge.",
+        "While recent deep-learning models have improved variant effect prediction accuracy, they cannot analyze all coding variants due to dependency on close homologs or software limitations.",
+        "Here we developed a workflow using ESM1b, a 650-million-parameter protein language model, to predict all ~450 million possible missense variant effects in the human genome, and made all predictions available on a web portal."
+      ]
+    },
+    {
+      "title": "AlphaFold2 and its applications in the fields of biology and medicine",
+      "authors": [
+        "Yang Z",
+        "Zeng X",
+        "Zhao Y",
+        "Chen R."
+      ],
+      "year": 2023,
+      "venue": "",
+      "doi": "10.1038/s41392-023-01381-z",
+      "pmid": "36918529",
+      "url": "https://doi.org/10.1038/s41392-023-01381-z",
+      "citations": 447,
+      "abstract": "AlphaFold2 (AF2) is an artificial intelligence (AI) system developed by DeepMind that can predict three-dimensional (3D) structures of proteins from amino acid sequences with atomic-level accuracy. Protein structure prediction is one of the most challenging problems in computational biology and chemistry, and has puzzled scientists for 50 years. The advent of AF2 presents an unprecedented progress in protein structure prediction and has attracted much attention. Subsequent release of structures of more than 200 million proteins predicted by AF2 further aroused great enthusiasm in the science community, especially in the fields of biology and medicine. AF2 is thought to have a significant imp…",
+      "topic": "ESMFold_structure",
+      "query": "(ESMFold OR \"protein language model\" AND structure prediction) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P036",
+      "keywords": [
+        "AlphaFold2",
+        "applications",
+        "biology",
+        "fields",
+        "its",
+        "medicine"
+      ],
+      "key_findings": [
+        "AlphaFold2 (AF2) is an artificial intelligence (AI) system developed by DeepMind that can predict three-dimensional (3D) structures of proteins from amino acid sequences with atomic-level accuracy.",
+        "Protein structure prediction is one of the most challenging problems in computational biology and chemistry, and has puzzled scientists for 50 years.",
+        "The advent of AF2 presents an unprecedented progress in protein structure prediction and has attracted much attention."
+      ]
+    },
+    {
+      "title": "Improving de novo protein binder design with deep learning",
+      "authors": [
+        "Bennett NR",
+        "Coventry B",
+        "Goreshnik I",
+        "Huang B",
+        "Allen A",
+        "Vafeados D",
+        "Peng YP",
+        "Dauparas J"
+      ],
+      "year": 2023,
+      "venue": "",
+      "doi": "10.1038/s41467-023-38328-5",
+      "pmid": "37149653",
+      "url": "https://doi.org/10.1038/s41467-023-38328-5",
+      "citations": 343,
+      "abstract": "Recently it has become possible to de novo design high affinity protein binding proteins from target structural information alone. There is, however, considerable room for improvement as the overall design success rate is low. Here, we explore the augmentation of energy-based protein binder design using deep learning. We find that using AlphaFold2 or RoseTTAFold to assess the probability that a designed sequence adopts the designed monomer structure, and the probability that this structure binds the target as designed, increases design success rates nearly 10-fold. We find further that sequence design using ProteinMPNN rather than Rosetta considerably increases computational efficiency.",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P037",
+      "keywords": [
+        "Improving",
+        "binder",
+        "deep",
+        "design",
+        "learning",
+        "novo",
+        "protein"
+      ],
+      "key_findings": [
+        "Recently it has become possible to de novo design high affinity protein binding proteins from target structural information alone.",
+        "There is, however, considerable room for improvement as the overall design success rate is low.",
+        "Here, we explore the augmentation of energy-based protein binder design using deep learning."
+      ]
+    },
+    {
+      "title": "AlphaFold Protein Structure Database: massively expanding the structural coverage of protein-sequence space with high-accuracy models",
+      "authors": [
+        "Varadi M",
+        "Anyango S",
+        "Deshpande M",
+        "Nair S",
+        "Natassia C",
+        "Yordanova G",
+        "Yuan D",
+        "Stroe O"
+      ],
+      "year": 2022,
+      "venue": "",
+      "doi": "10.1093/nar/gkab1061",
+      "pmid": "34791371",
+      "url": "https://doi.org/10.1093/nar/gkab1061",
+      "citations": 6766,
+      "abstract": "The AlphaFold Protein Structure Database (AlphaFold DB, https://alphafold.ebi.ac.uk) is an openly accessible, extensive database of high-accuracy protein-structure predictions. Powered by AlphaFold v2.0 of DeepMind, it has enabled an unprecedented expansion of the structural coverage of the known protein-sequence space. AlphaFold DB provides programmatic access to and interactive visualization of predicted atomic coordinates, per-residue and pairwise model-confidence estimates and predicted aligned errors. The initial release of AlphaFold DB contains over 360,000 predicted structures across 21 model-organism proteomes, which will soon be expanded to cover most of the (over 100 million) repre…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P038",
+      "keywords": [
+        "AlphaFold",
+        "Database",
+        "Protein",
+        "Structure",
+        "coverage",
+        "expanding",
+        "high-accuracy",
+        "massively",
+        "models",
+        "protein-sequence",
+        "space",
+        "structural"
+      ],
+      "key_findings": [
+        "The AlphaFold Protein Structure Database (AlphaFold DB, https://alphafold.ebi.ac.uk) is an openly accessible, extensive database of high-accuracy protein-structure predictions.",
+        "Powered by AlphaFold v2.0 of DeepMind, it has enabled an unprecedented expansion of the structural coverage of the known protein-sequence space.",
+        "AlphaFold DB provides programmatic access to and interactive visualization of predicted atomic coordinates, per-residue and pairwise model-confidence estimates and predicted aligned errors."
+      ]
+    },
+    {
+      "title": "A structural biology community assessment of AlphaFold2 applications",
+      "authors": [
+        "Akdel M",
+        "Pires DEV",
+        "Pardo EP",
+        "Jänes J",
+        "Zalevsky AO",
+        "Mészáros B",
+        "Bryant P",
+        "Good LL"
+      ],
+      "year": 2022,
+      "venue": "",
+      "doi": "10.1038/s41594-022-00849-w",
+      "pmid": "36344848",
+      "url": "https://doi.org/10.1038/s41594-022-00849-w",
+      "citations": 591,
+      "abstract": "Most proteins fold into 3D structures that determine how they function and orchestrate the biological processes of the cell. Recent developments in computational methods for protein structure predictions have reached the accuracy of experimentally determined models. Although this has been independently verified, the implementation of these methods across structural-biology applications remains to be tested. Here, we evaluate the use of AlphaFold2 (AF2) predictions in the study of characteristic structural elements; the impact of missense variants; function and ligand binding site predictions; modeling of interactions; and modeling of experimental structural data. For 11 proteomes, an average…",
+      "topic": "alphafold_interface_metrics",
+      "query": "(AlphaFold AND (ipTM OR \"interface score\" OR \"predicted aligned error\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P039",
+      "keywords": [
+        "AlphaFold2",
+        "applications",
+        "assessment",
+        "biology",
+        "community",
+        "structural"
+      ],
+      "key_findings": [
+        "Most proteins fold into 3D structures that determine how they function and orchestrate the biological processes of the cell.",
+        "Recent developments in computational methods for protein structure predictions have reached the accuracy of experimentally determined models.",
+        "Although this has been independently verified, the implementation of these methods across structural-biology applications remains to be tested."
+      ]
+    },
+    {
+      "title": "De novo design of picomolar SARS-CoV-2 miniprotein inhibitors",
+      "authors": [
+        "Cao L",
+        "Goreshnik I",
+        "Coventry B",
+        "Case JB",
+        "Miller L",
+        "Kozodoy L",
+        "Chen RE",
+        "Carter L"
+      ],
+      "year": 2020,
+      "venue": "",
+      "doi": "10.1126/science.abd9909",
+      "pmid": "32907861",
+      "url": "https://doi.org/10.1126/science.abd9909",
+      "citations": 617,
+      "abstract": "Targeting the interaction between the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) spike protein and the human angiotensin-converting enzyme 2 (ACE2) receptor is a promising therapeutic strategy. We designed inhibitors using two de novo design approaches. Computer-generated scaffolds were either built around an ACE2 helix that interacts with the spike receptor binding domain (RBD) or docked against the RBD to identify new binding modes, and their amino acid sequences were designed to optimize target binding, folding, and stability. Ten designs bound the RBD, with affinities ranging from 100 picomolar to 10 nanomolar, and blocked SARS-CoV-2 infection of Vero E6 cells with medi…",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P040",
+      "keywords": [
+        "SARS-CoV-2",
+        "design",
+        "inhibitors",
+        "miniprotein",
+        "novo",
+        "picomolar"
+      ],
+      "key_findings": [
+        "Targeting the interaction between the severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) spike protein and the human angiotensin-converting enzyme 2 (ACE2) receptor is a promising therapeutic strategy.",
+        "We designed inhibitors using two de novo design approaches.",
+        "Computer-generated scaffolds were either built around an ACE2 helix that interacts with the spike receptor binding domain (RBD) or docked against the RBD to identify new binding modes, and their amino acid sequences were designed to optimize target binding, folding, and stability."
+      ]
+    },
+    {
+      "title": "Yeast surface display platform for rapid discovery of conformationally selective nanobodies",
+      "authors": [
+        "McMahon C",
+        "Baier AS",
+        "Pascolutti R",
+        "Wegrecki M",
+        "Zheng S",
+        "Ong JX",
+        "Erlandson SC",
+        "Hilger D"
+      ],
+      "year": 2018,
+      "venue": "",
+      "doi": "10.1038/s41594-018-0028-6",
+      "pmid": "29434346",
+      "url": "https://doi.org/10.1038/s41594-018-0028-6",
+      "citations": 523,
+      "abstract": "Camelid single-domain antibody fragments ('nanobodies') provide the remarkable specificity of antibodies within a single 15-kDa immunoglobulin VHH domain. This unique feature has enabled applications ranging from use as biochemical tools to therapeutic agents. Nanobodies have emerged as especially useful tools in protein structural biology, facilitating studies of conformationally dynamic proteins such as G-protein-coupled receptors (GPCRs). Nearly all nanobodies available to date have been obtained by animal immunization, a bottleneck restricting many applications of this technology. To solve this problem, we report a fully in vitro platform for nanobody discovery based on yeast surface dis…",
+      "topic": "VHH_engineering",
+      "query": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P041",
+      "keywords": [
+        "Yeast",
+        "conformationally",
+        "discovery",
+        "display",
+        "nanobodies",
+        "platform",
+        "rapid",
+        "selective",
+        "surface"
+      ],
+      "key_findings": [
+        "Camelid single-domain antibody fragments ('nanobodies') provide the remarkable specificity of antibodies within a single 15-kDa immunoglobulin VHH domain.",
+        "This unique feature has enabled applications ranging from use as biochemical tools to therapeutic agents.",
+        "Nanobodies have emerged as especially useful tools in protein structural biology, facilitating studies of conformationally dynamic proteins such as G-protein-coupled receptors (GPCRs)."
+      ]
+    },
+    {
+      "title": "Identifying specificity groups in the T cell receptor repertoire",
+      "authors": [
+        "Glanville J",
+        "Huang H",
+        "Nau A",
+        "Hatton O",
+        "Wagar LE",
+        "Rubelt F",
+        "Ji X",
+        "Han A"
+      ],
+      "year": 2017,
+      "venue": "",
+      "doi": "10.1038/nature22976",
+      "pmid": "28636589",
+      "url": "https://doi.org/10.1038/nature22976",
+      "citations": 956,
+      "abstract": "T cell receptor (TCR) sequences are very diverse, with many more possible sequence combinations than T cells in any one individual. Here we define the minimal requirements for TCR antigen specificity, through an analysis of TCR sequences using a panel of peptide and major histocompatibility complex (pMHC)-tetramer-sorted cells and structural data. From this analysis we developed an algorithm that we term GLIPH (grouping of lymphocyte interactions by paratope hotspots) to cluster TCRs with a high probability of sharing specificity owing to both conserved motifs and global similarity of complementarity-determining region 3 (CDR3) sequences. We show that GLIPH can reliably group TCRs of common…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P042",
+      "keywords": [
+        "Identifying",
+        "cell",
+        "groups",
+        "receptor",
+        "repertoire",
+        "specificity"
+      ],
+      "key_findings": [
+        "T cell receptor (TCR) sequences are very diverse, with many more possible sequence combinations than T cells in any one individual.",
+        "Here we define the minimal requirements for TCR antigen specificity, through an analysis of TCR sequences using a panel of peptide and major histocompatibility complex (pMHC)-tetramer-sorted cells and structural data.",
+        "From this analysis we developed an algorithm that we term GLIPH (grouping of lymphocyte interactions by paratope hotspots) to cluster TCRs with a high probability of sharing specificity owing to both conserved motifs and global similarity of complementarity-determining region 3 (CDR3) sequences."
+      ]
+    },
+    {
+      "title": "Nanobodies and Nanobody-Based Human Heavy Chain Antibodies As Antitumor Therapeutics",
+      "authors": [
+        "Bannas P",
+        "Hambach J",
+        "Koch-Nolte F."
+      ],
+      "year": 2017,
+      "venue": "",
+      "doi": "10.3389/fimmu.2017.01603",
+      "pmid": "29213270",
+      "url": "https://doi.org/10.3389/fimmu.2017.01603",
+      "citations": 472,
+      "abstract": "Monoclonal antibodies have revolutionized cancer therapy. However, delivery to tumor cells in vivo is hampered by the large size (150 kDa) of conventional antibodies. The minimal target recognition module of a conventional antibody is composed of two non-covalently associated variable domains (VH and VL). The proper orientation of these domains is mediated by their hydrophobic interface and is stabilized by their linkage to disulfide-linked constant domains (CH1 and CL). VH and VL domains can be fused via a genetic linker into a single-chain variable fragment (scFv). scFv modules in turn can be fused to one another, e.g., to generate a bispecific T-cell engager, or they can be fused in vario…",
+      "topic": "EGFR_nanobody",
+      "query": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P043",
+      "keywords": [
+        "Antibodies",
+        "Antitumor",
+        "Chain",
+        "Heavy",
+        "Human",
+        "Nanobodies",
+        "Nanobody-Based",
+        "Therapeutics"
+      ],
+      "key_findings": [
+        "Monoclonal antibodies have revolutionized cancer therapy.",
+        "However, delivery to tumor cells in vivo is hampered by the large size (150 kDa) of conventional antibodies.",
+        "The minimal target recognition module of a conventional antibody is composed of two non-covalently associated variable domains (VH and VL)."
+      ]
+    },
+    {
+      "title": "Massively parallel de novo protein design for targeted therapeutics",
+      "authors": [
+        "Chevalier A",
+        "Silva DA",
+        "Rocklin GJ",
+        "Hicks DR",
+        "Vergara R",
+        "Murapa P",
+        "Bernard SM",
+        "Zhang L"
+      ],
+      "year": 2017,
+      "venue": "",
+      "doi": "10.1038/nature23912",
+      "pmid": "28953867",
+      "url": "https://doi.org/10.1038/nature23912",
+      "citations": 392,
+      "abstract": "De novo protein design holds promise for creating small stable proteins with shapes customized to bind therapeutic targets. We describe a massively parallel approach for designing, manufacturing and screening mini-protein binders, integrating large-scale computational design, oligonucleotide synthesis, yeast display screening and next-generation sequencing. We designed and tested 22,660 mini-proteins of 37-43 residues that target influenza haemagglutinin and botulinum neurotoxin B, along with 6,286 control sequences to probe contributions to folding and binding, and identified 2,618 high-affinity binders. Comparison of the binding and non-binding design sets, which are two orders of magnitud…",
+      "topic": "minibinder_design",
+      "query": "(\"de novo\" AND (\"mini binder\" OR minibinder OR \"binder design\")) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P044",
+      "keywords": [
+        "Massively",
+        "design",
+        "novo",
+        "parallel",
+        "protein",
+        "targeted",
+        "therapeutics"
+      ],
+      "key_findings": [
+        "De novo protein design holds promise for creating small stable proteins with shapes customized to bind therapeutic targets.",
+        "We describe a massively parallel approach for designing, manufacturing and screening mini-protein binders, integrating large-scale computational design, oligonucleotide synthesis, yeast display screening and next-generation sequencing.",
+        "We designed and tested 22,660 mini-proteins of 37-43 residues that target influenza haemagglutinin and botulinum neurotoxin B, along with 6,286 control sequences to probe contributions to folding and binding, and identified 2,618 high-affinity binders."
+      ]
+    },
+    {
+      "title": "PEGylated and targeted extracellular vesicles display enhanced cell specificity and circulation time",
+      "authors": [
+        "Kooijmans SAA",
+        "Fliervoet LAL",
+        "van der Meel R",
+        "Fens MHAM",
+        "Heijnen HFG",
+        "van Bergen En Henegouwen PMP",
+        "Vader P",
+        "Schiffelers RM."
+      ],
+      "year": 2016,
+      "venue": "",
+      "doi": "10.1016/j.jconrel.2016.01.009",
+      "pmid": "26773767",
+      "url": "https://doi.org/10.1016/j.jconrel.2016.01.009",
+      "citations": 503,
+      "abstract": "Extracellular vesicles (EVs) are increasingly being recognized as candidate drug delivery systems due to their ability to functionally transfer biological cargo between cells. However, the therapeutic applicability of EVs may be limited due to a lack of cell-targeting specificity and rapid clearance of exogenous EVs from the circulation. In order to improve EV characteristics for drug delivery to tumor cells, we have developed a novel method for decorating EVs with targeting ligands conjugated to polyethylene glycol (PEG). Nanobodies specific for the epidermal growth factor receptor (EGFR) were conjugated to phospholipid (DMPE)-PEG derivatives to prepare nanobody-PEG-micelles. When micelles…",
+      "topic": "EGFR_nanobody",
+      "query": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P045",
+      "keywords": [
+        "PEGylated",
+        "cell",
+        "circulation",
+        "display",
+        "enhanced",
+        "extracellular",
+        "specificity",
+        "targeted",
+        "time",
+        "vesicles"
+      ],
+      "key_findings": [
+        "Extracellular vesicles (EVs) are increasingly being recognized as candidate drug delivery systems due to their ability to functionally transfer biological cargo between cells.",
+        "However, the therapeutic applicability of EVs may be limited due to a lack of cell-targeting specificity and rapid clearance of exogenous EVs from the circulation.",
+        "In order to improve EV characteristics for drug delivery to tumor cells, we have developed a novel method for decorating EVs with targeting ligands conjugated to polyethylene glycol (PEG)."
+      ]
+    },
+    {
+      "title": "PD-1 identifies the patient-specific CD8⁺ tumor-reactive repertoire infiltrating human tumors",
+      "authors": [
+        "Gros A",
+        "Robbins PF",
+        "Yao X",
+        "Li YF",
+        "Turcotte S",
+        "Tran E",
+        "Wunderlich JR",
+        "Mixon A"
+      ],
+      "year": 2014,
+      "venue": "",
+      "doi": "10.1172/jci73639",
+      "pmid": "24667641",
+      "url": "https://doi.org/10.1172/jci73639",
+      "citations": 954,
+      "abstract": "Adoptive transfer of tumor-infiltrating lymphocytes (TILs) can mediate regression of metastatic melanoma; however, TILs are a heterogeneous population, and there are no effective markers to specifically identify and select the repertoire of tumor-reactive and mutation-specific CD8⁺ lymphocytes. The lack of biomarkers limits the ability to study these cells and develop strategies to enhance clinical efficacy and extend this therapy to other malignancies. Here, we evaluated unique phenotypic traits of CD8⁺ TILs and TCR β chain (TCRβ) clonotypic frequency in melanoma tumors to identify patient-specific repertoires of tumor-reactive CD8⁺ lymphocytes. In all 6 tumors studied, expression of the in…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P046",
+      "keywords": [
+        "CD8",
+        "PD-1",
+        "human",
+        "identifies",
+        "infiltrating",
+        "patient-specific",
+        "repertoire",
+        "tumor-reactive",
+        "tumors"
+      ],
+      "key_findings": [
+        "Adoptive transfer of tumor-infiltrating lymphocytes (TILs) can mediate regression of metastatic melanoma; however, TILs are a heterogeneous population, and there are no effective markers to specifically identify and select the repertoire of tumor-reactive and mutation-specific CD8⁺ lymphocytes.",
+        "The lack of biomarkers limits the ability to study these cells and develop strategies to enhance clinical efficacy and extend this therapy to other malignancies.",
+        "Here, we evaluated unique phenotypic traits of CD8⁺ TILs and TCR β chain (TCRβ) clonotypic frequency in melanoma tumors to identify patient-specific repertoires of tumor-reactive CD8⁺ lymphocytes."
+      ]
+    },
+    {
+      "title": "Ebola virus entry requires the cholesterol transporter Niemann-Pick C1",
+      "authors": [
+        "Carette JE",
+        "Raaben M",
+        "Wong AC",
+        "Herbert AS",
+        "Obernosterer G",
+        "Mulherkar N",
+        "Kuehne AI",
+        "Kranzusch PJ"
+      ],
+      "year": 2011,
+      "venue": "",
+      "doi": "10.1038/nature10348",
+      "pmid": "21866103",
+      "url": "https://doi.org/10.1038/nature10348",
+      "citations": 1153,
+      "abstract": "Infections by the Ebola and Marburg filoviruses cause a rapidly fatal haemorrhagic fever in humans for which no approved antivirals are available. Filovirus entry is mediated by the viral spike glycoprotein (GP), which attaches viral particles to the cell surface, delivers them to endosomes and catalyses fusion between viral and endosomal membranes. Additional host factors in the endosomal compartment are probably required for viral membrane fusion; however, despite considerable efforts, these critical host factors have defied molecular identification. Here we describe a genome-wide haploid genetic screen in human cells to identify host factors required for Ebola virus entry. Our screen unco…",
+      "topic": "pH_dependent_binders",
+      "query": "(\"pH-dependent\" AND (antibody OR binder OR affinity)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P047",
+      "keywords": [
+        "Ebola",
+        "Niemann-Pick",
+        "cholesterol",
+        "entry",
+        "requires",
+        "transporter",
+        "virus"
+      ],
+      "key_findings": [
+        "Infections by the Ebola and Marburg filoviruses cause a rapidly fatal haemorrhagic fever in humans for which no approved antivirals are available.",
+        "Filovirus entry is mediated by the viral spike glycoprotein (GP), which attaches viral particles to the cell surface, delivers them to endosomes and catalyses fusion between viral and endosomal membranes.",
+        "Additional host factors in the endosomal compartment are probably required for viral membrane fusion; however, despite considerable efforts, these critical host factors have defied molecular identification."
+      ]
+    },
+    {
+      "title": "Structure and function of immunoglobulins",
+      "authors": [
+        "Schroeder HW",
+        "Cavacini L."
+      ],
+      "year": 2010,
+      "venue": "",
+      "doi": "10.1016/j.jaci.2009.09.046",
+      "pmid": "20176268",
+      "url": "https://doi.org/10.1016/j.jaci.2009.09.046",
+      "citations": 1274,
+      "abstract": "Immunoglobulins are heterodimeric proteins composed of 2 heavy and 2 light chains. They can be separated functionally into variable domains that bind antigens and constant domains that specify effector functions, such as activation of complement or binding to Fc receptors. The variable domains are created by means of a complex series of gene rearrangement events and can then be subjected to somatic hypermutation after exposure to antigen to allow affinity maturation. Each variable domain can be split into 3 regions of sequence variability termed the complementarity-determining regions (CDRs) and 4 regions of relatively constant sequence termed the framework regions. The 3 CDRs of the heavy c…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P048",
+      "keywords": [
+        "Structure",
+        "function",
+        "immunoglobulins"
+      ],
+      "key_findings": [
+        "Immunoglobulins are heterodimeric proteins composed of 2 heavy and 2 light chains.",
+        "They can be separated functionally into variable domains that bind antigens and constant domains that specify effector functions, such as activation of complement or binding to Fc receptors.",
+        "The variable domains are created by means of a complex series of gene rearrangement events and can then be subjected to somatic hypermutation after exposure to antigen to allow affinity maturation."
+      ]
+    },
+    {
+      "title": "General strategy to humanize a camelid single-domain antibody and identification of a universal humanized nanobody scaffold",
+      "authors": [
+        "Vincke C",
+        "Loris R",
+        "Saerens D",
+        "Martinez-Rodriguez S",
+        "Muyldermans S",
+        "Conrath K."
+      ],
+      "year": 2009,
+      "venue": "",
+      "doi": "10.1074/jbc.m806889200",
+      "pmid": "19010777",
+      "url": "https://doi.org/10.1074/jbc.m806889200",
+      "citations": 477,
+      "abstract": "Nanobodies, single-domain antigen-binding fragments of camelid-specific heavy-chain only antibodies offer special advantages in therapy over classic antibody fragments because of their smaller size, robustness, and preference to target unique epitopes. A Nanobody differs from a human heavy chain variable domain in about ten amino acids spread all over its surface, four hallmark Nanobody-specific amino acids in the framework-2 region (positions 42, 49, 50, and 52), and a longer third antigen-binding loop (H3) folding over this area. For therapeutic applications the camelid-specific amino acid sequences in the framework have to be mutated to their human heavy chain variable domain equivalent,…",
+      "topic": "VHH_engineering",
+      "query": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P049",
+      "keywords": [
+        "General",
+        "antibody",
+        "camelid",
+        "humanize",
+        "humanized",
+        "identification",
+        "nanobody",
+        "scaffold",
+        "single-domain",
+        "strategy",
+        "universal"
+      ],
+      "key_findings": [
+        "Nanobodies, single-domain antigen-binding fragments of camelid-specific heavy-chain only antibodies offer special advantages in therapy over classic antibody fragments because of their smaller size, robustness, and preference to target unique epitopes.",
+        "A Nanobody differs from a human heavy chain variable domain in about ten amino acids spread all over its surface, four hallmark Nanobody-specific amino acids in the framework-2 region (positions 42, 49, 50, and 52), and a longer third antigen-binding loop (H3) folding over this area.",
+        "For therapeutic applications the camelid-specific amino acid sequences in the framework have to be mutated to their human heavy chain variable domain equivalent,…"
+      ]
+    },
+    {
+      "title": "Properties, production, and applications of camelid single-domain antibody fragments",
+      "authors": [
+        "Harmsen MM",
+        "De Haard HJ."
+      ],
+      "year": 2007,
+      "venue": "",
+      "doi": "10.1007/s00253-007-1142-2",
+      "pmid": "17704915",
+      "url": "https://doi.org/10.1007/s00253-007-1142-2",
+      "citations": 594,
+      "abstract": "Camelids produce functional antibodies devoid of light chains of which the single N-terminal domain is fully capable of antigen binding. These single-domain antibody fragments (VHHs or Nanobodies) have several advantages for biotechnological applications. They are well expressed in microorganisms and have a high stability and solubility. Furthermore, they are well suited for construction of larger molecules and selection systems such as phage, yeast, or ribosome display. This minireview offers an overview of (1) their properties as compared to conventional antibodies, (2) their production in microorganisms, with a focus on yeasts, and (3) their therapeutic applications.",
+      "topic": "EGFR_nanobody",
+      "query": "(EGFR AND (nanobody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P050",
+      "keywords": [
+        "Properties",
+        "antibody",
+        "applications",
+        "camelid",
+        "fragments",
+        "production",
+        "single-domain"
+      ],
+      "key_findings": [
+        "Camelids produce functional antibodies devoid of light chains of which the single N-terminal domain is fully capable of antigen binding.",
+        "These single-domain antibody fragments (VHHs or Nanobodies) have several advantages for biotechnological applications.",
+        "They are well expressed in microorganisms and have a high stability and solubility."
+      ]
+    },
+    {
+      "title": "Single-domain antibody fragments with high conformational stability",
+      "authors": [
+        "Dumoulin M",
+        "Conrath K",
+        "Van Meirhaeghe A",
+        "Meersman F",
+        "Heremans K",
+        "Frenken LG",
+        "Muyldermans S",
+        "Wyns L"
+      ],
+      "year": 2002,
+      "venue": "",
+      "doi": "10.1110/ps.34602",
+      "pmid": "11847273",
+      "url": "https://doi.org/10.1110/ps.34602",
+      "citations": 497,
+      "abstract": "A variety of techniques, including high-pressure unfolding monitored by Fourier transform infrared spectroscopy, fluorescence, circular dichroism, and surface plasmon resonance spectroscopy, have been used to investigate the equilibrium folding properties of six single-domain antigen binders derived from camelid heavy-chain antibodies with specificities for lysozymes, beta-lactamases, and a dye (RR6). Various denaturing conditions (guanidinium chloride, urea, temperature, and pressure) provided complementary and independent methods for characterizing the stability and unfolding properties of the antibody fragments. With all binders, complete recovery of the biological activity after renatura…",
+      "topic": "VHH_engineering",
+      "query": "(\"single-domain antibody\" AND (stability OR humanization OR engineering)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P051",
+      "keywords": [
+        "Single-domain",
+        "antibody",
+        "conformational",
+        "fragments",
+        "high",
+        "stability"
+      ],
+      "key_findings": [
+        "A variety of techniques, including high-pressure unfolding monitored by Fourier transform infrared spectroscopy, fluorescence, circular dichroism, and surface plasmon resonance spectroscopy, have been used to investigate the equilibrium folding properties of six single-domain antigen binders derived from camelid heavy-chain antibodies with specificities for lysozymes, beta-lactamases, and a dye (RR6).",
+        "Various denaturing conditions (guanidinium chloride, urea, temperature, and pressure) provided complementary and independent methods for characterizing the stability and unfolding properties of the antibody fragments.",
+        "With all binders, complete recovery of the biological activity after renatura…"
+      ]
+    },
+    {
+      "title": "Isolation of high affinity human antibodies directly from large synthetic repertoires",
+      "authors": [
+        "Griffiths AD",
+        "Williams SC",
+        "Hartley O",
+        "Tomlinson IM",
+        "Waterhouse P",
+        "Crosby WL",
+        "Kontermann RE",
+        "Jones PT"
+      ],
+      "year": 1994,
+      "venue": "",
+      "doi": "10.1002/j.1460-2075.1994.tb06626.x",
+      "pmid": "8045255",
+      "url": "https://doi.org/10.1002/j.1460-2075.1994.tb06626.x",
+      "citations": 676,
+      "abstract": "Antibody fragments of moderate affinity (approximately microM) can be isolated from repertoires of approximately 10(8) immunoglobulin genes by phage display and rounds of selection with antigen, and the affinities improved by further rounds of mutation and selection. Here, as an alternative strategy, we attempted to isolate high affinity human antibodies directly from large repertoires. We first created highly diverse repertoires of heavy and light chains entirely in vitro from a bank of human V gene segments and then, by recombination of the repertoires in bacteria, generated a large (close to 6.5 x 10(10)) synthetic repertoire of Fab fragments displayed on filamentous phage. From this repe…",
+      "topic": "cdr3_repertoire",
+      "query": "((CDR3 AND (repertoire OR length)) AND (antibody OR VHH)) AND (HAS_ABSTRACT:Y)",
+      "source": "Europe PMC REST API",
+      "selection": "high_citation",
+      "id": "P052",
+      "keywords": [
+        "Isolation",
+        "affinity",
+        "antibodies",
+        "directly",
+        "high",
+        "human",
+        "large",
+        "repertoires",
+        "synthetic"
+      ],
+      "key_findings": [
+        "Antibody fragments of moderate affinity (approximately microM) can be isolated from repertoires of approximately 10(8) immunoglobulin genes by phage display and rounds of selection with antigen, and the affinities improved by further rounds of mutation and selection.",
+        "Here, as an alternative strategy, we attempted to isolate high affinity human antibodies directly from large repertoires.",
+        "We first created highly diverse repertoires of heavy and light chains entirely in vitro from a bank of human V gene segments and then, by recombination of the repertoires in bacteria, generated a large (close to 6.5 x 10(10)) synthetic repertoire of Fab fragments displayed on filamentous phage."
+      ]
+    }
+  ]
+}

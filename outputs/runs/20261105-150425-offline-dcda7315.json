@@ -1,0 +1,355 @@
+{
+  "mode": "offline",
+  "model": "OfflineLLM(deterministic)",
+  "llm_calls": 5,
+  "tool_calls": 4,
+  "tool_retries": 0,
+  "retry_events": [],
+  "total_tokens": 0,
+  "prompt_tokens": 0,
+  "completion_tokens": 0,
+  "cost_cny_estimate": 0.0,
+  "latency_s": {
+    "total_wall": 0.17,
+    "llm_sum": 0.0,
+    "llm_max": 0.0,
+    "llm_avg": 0.0
+  },
+  "steps": [
+    {
+      "step": 1,
+      "latency_s": 0.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "model": "OfflineLLM(deterministic)",
+      "ok": true,
+      "prompt_sha256": "b321cf3965588c1b39de5683dc024a6074d4812507dee79f1c43e9322957a777",
+      "phase": "agent"
+    },
+    {
+      "step": 2,
+      "latency_s": 0.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "model": "OfflineLLM(deterministic)",
+      "ok": true,
+      "prompt_sha256": "e9422950708897574cd334e9f10feb29ee80a19fa9ea5b7b3eea266af2aa2600",
+      "phase": "agent"
+    },
+    {
+      "step": 3,
+      "latency_s": 0.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "model": "OfflineLLM(deterministic)",
+      "ok": true,
+      "prompt_sha256": "8af08bc17dece388658e7f08dba45cf3e06ce648da2ea42f3c0f6ee58a298fa6",
+      "phase": "agent"
+    },
+    {
+      "step": 4,
+      "latency_s": 0.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "model": "OfflineLLM(deterministic)",
+      "ok": true,
+      "prompt_sha256": "23915236a4c8b24bbd2dbccf3cb29e647c09df79566254b4a18c0a9cb9a9ea80",
+      "phase": "agent"
+    },
+    {
+      "step": 5,
+      "latency_s": 0.0,
+      "prompt_tokens": 0,
+      "completion_tokens": 0,
+      "model": "OfflineLLM(deterministic)",
+      "ok": true,
+      "prompt_sha256": "2f8ecec9a4723e8786a79f9c413974025023ef2c2f74d6c2c6bfc6ac8be89b89",
+      "phase": "agent"
+    }
+  ],
+  "inputs": {
+    "goal_sha256": "41f5bdf5bc6962613b4a40d87a48b52b721b80af3b0489ffd6bf8f1eb02e5eba",
+    "corpus_sha256": "6d58293fe538a6a2",
+    "corpus_papers": 52,
+    "max_steps": 10,
+    "temperature": 0.2,
+    "seed": 42,
+    "seed_policy": "offline=deterministic script; live=seed passed to API (provider may ignore)",
+    "system_prompt_sha256": "2d5c2dac249b10469f5cc6be0bff90ba99e986a99ed98ec7688ee6323afa4b95",
+    "base_url": null,
+    "repair_target": 90,
+    "max_repair_rounds": 3,
+    "repair_budget_s": 180.0,
+    "repair_max_tokens": 1200,
+    "agent_max_tokens": 3000,
+    "thinking_mode": false
+  },
+  "outputs": {
+    "note_sha256": "dcda73150818c0f556430eb2397829e5c13dbae22e0e1e54236459754d14d442",
+    "note_sha256_scope": "正文（已剔除生成时间注释）",
+    "note_path": "outputs/latest_lab_note.md",
+    "verify_score": 100,
+    "grounding_score": 100,
+    "repair_rounds": 0,
+    "tool_retries": 0,
+    "repair_stop_reason": "target_reached",
+    "repair_phase_s": 0.0,
+    "repair_budget_s": 180.0,
+    "grounding_before_postprocess": 100,
+    "grounding_after_postprocess": 100,
+    "best_round": 0,
+    "score_trajectory": [
+      {
+        "round": 0,
+        "score": 100,
+        "rule": 100,
+        "grounding": 100,
+        "grounding_raw": 100,
+        "failed_checks": [],
+        "sanitized": {
+          "stripped_ids": [],
+          "dropped_lines": [],
+          "reground": {
+            "grounding_before": 100,
+            "rematched": [],
+            "dropped": [],
+            "grounding_after": 100
+          },
+          "repair_stop_reason": "target_reached",
+          "repair_phase_s": 0.0,
+          "verify_passed": true
+        }
+      }
+    ],
+    "evidence_support": {
+      "direct": 11,
+      "indirect": 0,
+      "overstated": 0,
+      "unsupported": 0
+    },
+    "evidence_support_score": 100,
+    "evidence_softened": 0,
+    "evidence_disagreements": {
+      "real": 2,
+      "conditions": 0,
+      "definitions": 0
+    },
+    "evidence_confidence": [
+      {
+        "topic": "EGFR_nanobody",
+        "confidence": 90,
+        "level": "高",
+        "sources": 7,
+        "method_variety": 2,
+        "real_conflicts": 0
+      },
+      {
+        "topic": "ESMFold_structure",
+        "confidence": 90,
+        "level": "高",
+        "sources": 8,
+        "method_variety": 2,
+        "real_conflicts": 0
+      },
+      {
+        "topic": "VHH_engineering",
+        "confidence": 80,
+        "level": "高",
+        "sources": 7,
+        "method_variety": 1,
+        "real_conflicts": 0
+      },
+      {
+        "topic": "alphafold_interface_metrics",
+        "confidence": 80,
+        "level": "高",
+        "sources": 8,
+        "method_variety": 1,
+        "real_conflicts": 0
+      },
+      {
+        "topic": "minibinder_design",
+        "confidence": 80,
+        "level": "高",
+        "sources": 8,
+        "method_variety": 1,
+        "real_conflicts": 0
+      },
+      {
+        "topic": "nanobody_expression",
+        "confidence": 60,
+        "level": "中",
+        "sources": 3,
+        "method_variety": 1,
+        "real_conflicts": 0
+      },
+      {
+        "topic": "pH_dependent_binders",
+        "confidence": 60,
+        "level": "中",
+        "sources": 3,
+        "method_variety": 1,
+        "real_conflicts": 0
+      },
+      {
+        "topic": "cdr3_repertoire",
+        "confidence": 50,
+        "level": "中",
+        "sources": 8,
+        "method_variety": 2,
+        "real_conflicts": 2
+      }
+    ],
+    "evidence_error": null,
+    "hypotheses": [
+      {
+        "id": "H01",
+        "text": "在「cdr3_repertoire」上，P029 的方向性结论成立，而 P046、P052 的相反结论源于实质分歧；可通过统一条件与口径后复测来判定。",
+        "origin": "conflict",
+        "topic": "cdr3_repertoire",
+        "claim_direction": "down",
+        "claim": [
+          "P029"
+        ],
+        "oppose": [
+          "P046",
+          "P052"
+        ],
+        "support": [
+          "P029"
+        ],
+        "counter": [
+          "P046",
+          "P052"
+        ],
+        "elo": 1056.0,
+        "wins": 5,
+        "losses": 0,
+        "survival": 43,
+        "contest": 1
+      },
+      {
+        "id": "H06",
+        "text": "「ESMFold_structure」目前有 8 条证据支撑且仅覆盖 2 类方法（assay、model），仍缺独立复现，若补充独立方法的重复实验，现有方向性结论仍将成立。",
+        "origin": "gap",
+        "topic": "ESMFold_structure",
+        "claim_direction": "up",
+        "claim": [
+          "P019",
+          "P032",
+          "P033",
+          "P035"
+        ],
+        "oppose": [],
+        "support": [
+          "P019",
+          "P032",
+          "P033",
+          "P035"
+        ],
+        "counter": [],
+        "elo": 1035.1,
+        "wins": 4,
+        "losses": 1,
+        "survival": 92,
+        "contest": 0
+      },
+      {
+        "id": "H05",
+        "text": "「VHH_engineering」目前有 7 条证据支撑且方法单一（仅见「in vitro」），若补充独立方法的重复实验，现有方向性结论仍将成立。",
+        "origin": "gap",
+        "topic": "VHH_engineering",
+        "claim_direction": "down",
+        "claim": [
+          "P005",
+          "P014"
+        ],
+        "oppose": [],
+        "support": [
+          "P005",
+          "P014"
+        ],
+        "counter": [],
+        "elo": 1011.9,
+        "wins": 3,
+        "losses": 2,
+        "survival": 78,
+        "contest": 0
+      },
+      {
+        "id": "H03",
+        "text": "「pH_dependent_binders」目前有 3 条证据支撑且方法单一（仅见「in vivo」），若补充独立方法的重复实验，现有方向性结论仍将成立。",
+        "origin": "gap",
+        "topic": "pH_dependent_binders",
+        "claim_direction": "up",
+        "claim": [
+          "P007"
+        ],
+        "oppose": [],
+        "support": [
+          "P007"
+        ],
+        "counter": [],
+        "elo": 988.0,
+        "wins": 2,
+        "losses": 3,
+        "survival": 64,
+        "contest": 0
+      },
+      {
+        "id": "H04",
+        "text": "「EGFR_nanobody」目前有 7 条证据支撑且仅覆盖 2 类方法（in vivo、review），仍缺独立复现，若补充独立方法的重复实验，现有方向性结论仍将成立。",
+        "origin": "gap",
+        "topic": "EGFR_nanobody",
+        "claim_direction": "up",
+        "claim": [
+          "P045"
+        ],
+        "oppose": [],
+        "support": [
+          "P045"
+        ],
+        "counter": [],
+        "elo": 966.4,
+        "wins": 1,
+        "losses": 4,
+        "survival": 58,
+        "contest": 0
+      },
+      {
+        "id": "H02",
+        "text": "「nanobody_expression」目前有 3 条证据支撑且方法单一（仅见「assay」），若补充独立方法的重复实验，现有方向性结论仍将成立。",
+        "origin": "gap",
+        "topic": "nanobody_expression",
+        "claim_direction": "neutral",
+        "claim": [
+          "P001",
+          "P025",
+          "P026"
+        ],
+        "oppose": [],
+        "support": [],
+        "counter": [],
+        "elo": 942.6,
+        "wins": 0,
+        "losses": 5,
+        "survival": 36,
+        "contest": 0
+      }
+    ],
+    "hypothesis_rounds": 15,
+    "next_experiment": {
+      "hypothesis": "H01",
+      "design": "在统一条件与统一指标口径下，对「cdr3_repertoire」做一次最小判别实验：取支持组文献 P029 与反证组 P046、P052 各自报告的条件，设为两个对照臂，同一批次、同一测定方法下重测该主题的方向性指标。",
+      "readout": "两臂方向是否一致；若一致则原分歧归因于条件/口径差异，若相反则为实质分歧。",
+      "decision": "方向一致 → 合并结论并提高置信度；方向相反 → 该主题结论降级为待定，不进入下游设计。"
+    },
+    "hypothesis_error": null
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Linux-7.0.0-39-generic-x86_64-with-glibc2.39"
+  },
+  "reproducible": true,
+  "note": "offline 模式为确定性脚本 LLM：相同输入 → 相同 note_sha256；live 模式受模型采样影响，仅输入指纹可复现。"
+}
