@@ -10,7 +10,7 @@
   "completion_tokens": 0,
   "cost_cny_estimate": 0.0,
   "latency_s": {
-    "total_wall": 0.19,
+    "total_wall": 0.16,
     "llm_sum": 0.0,
     "llm_max": 0.0,
     "llm_avg": 0.0
@@ -23,7 +23,7 @@
       "completion_tokens": 0,
       "model": "OfflineLLM(deterministic)",
       "ok": true,
-      "prompt_sha256": "893e67bcd6d3a1efe4657df50ef252c02645c3c7a081419de4cab7b49201a14e",
+      "prompt_sha256": "167df3c179d62f94282af1f5caaff2d31dc8dc9c482fcdf2d698cf54d0bd27c6",
       "phase": "agent"
     },
     {
@@ -33,7 +33,7 @@
       "completion_tokens": 0,
       "model": "OfflineLLM(deterministic)",
       "ok": true,
-      "prompt_sha256": "3393399a68e5c9318aacdaa8602c73e88bae4f4fbea000f160b84013ffc35b48",
+      "prompt_sha256": "319883bad336b95795975348fd31303e1853e68f1649df2bbab0c6554b11bd6b",
       "phase": "agent"
     },
     {
@@ -43,7 +43,7 @@
       "completion_tokens": 0,
       "model": "OfflineLLM(deterministic)",
       "ok": true,
-      "prompt_sha256": "a54cc8b49ba135c60af8aa47abddc65f82feb1d446c6dbe6b276dd40a66b5914",
+      "prompt_sha256": "d942eb6e7284b7710db84950536a6f8c68c6d340113b1eeded12521f72a494c8",
       "phase": "agent"
     },
     {
@@ -53,7 +53,7 @@
       "completion_tokens": 0,
       "model": "OfflineLLM(deterministic)",
       "ok": true,
-      "prompt_sha256": "88c863bfffbd29f5a07a50b09cc8db7cb8f7ad15c28bfaa31c31a826371029cf",
+      "prompt_sha256": "22064705ed9472c73b6247d6abdc587ce930edc145a88bbce61c8159565628c1",
       "phase": "agent"
     },
     {
@@ -63,15 +63,15 @@
       "completion_tokens": 0,
       "model": "OfflineLLM(deterministic)",
       "ok": true,
-      "prompt_sha256": "380df204796b12d09515cb173161ffa5bd197a4443205c23be72bc96c9042e5e",
+      "prompt_sha256": "d5096527e8874a4e4cbc0b3edcc323f035fcaee5472dfc4bbfb11bc2589823b1",
       "phase": "agent"
     }
   ],
   "inputs": {
-    "goal_sha256": "a3e732e334c44e031d66505d1808267848d4de0e24ca574b31d17c1d457ab50d",
+    "goal_sha256": "41f5bdf5bc6962613b4a40d87a48b52b721b80af3b0489ffd6bf8f1eb02e5eba",
     "corpus_sha256": "ac30f79c68f83222",
     "corpus_papers": 52,
-    "max_steps": 8,
+    "max_steps": 10,
     "temperature": 0.2,
     "seed": 42,
     "seed_policy": "offline=deterministic script; live=seed passed to API (provider may ignore)",
@@ -416,7 +416,7 @@
   },
   "env": {
     "python": "3.12.3",
-    "platform": "Linux-7.0.0-39-generic-x86_64-with-glibc2.39"
+    "platform": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39"
   },
   "determinism": {
     "note_sha256": "80ce2e27cd71459ec25d39a48cb8ee29253736187736d48f0318eba167937e10",
@@ -424,7 +424,7 @@
     "verified_by": "compare determinism.note_sha256 across two runs (see scripts/verify_all.sh)"
   },
   "timing": {
-    "total_wall_s": 0.19,
+    "total_wall_s": 0.16,
     "llm_sum_s": 0.0
   },
   "reproducible": {

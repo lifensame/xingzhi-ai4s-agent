@@ -65,7 +65,7 @@ python scripts/fetch_corpus.py
 
 > 诚实说明：两项能力都基于**词面重叠 + 关键词规则**，术语桥为手工构建；手写样例集 `tests/fixtures/support_cases.json` 上支撑分级 10/10、分歧判型 6/6，但样例只有 10 + 6 条、由我们自己编写，不代表真实准确率；锦标赛裁判是规则化的确定性裁判（H02 因 contest=1 且证据净值高于 H01 胜出，不是"科学正确"）。红队**已按** `claim_direction` 相对计票（H02 support=[P007]，H01 support=[P029]）。详见 `docs/tech_report.md` 第 4.1 / 4.8 / 6 节与 `docs/scoring_alignment.md`。
 >
-> 新模块与红队修复后：`pytest -q` **144 passed**；`scripts/verify_all.sh` **PASS=6 FAIL=0**；离线 100/100，笔记哈希为 `80ce2e27…`（副标题改为六阶段后；改动前为 `dcda7315…`）；一次 LIVE 运行（intern-s2）**100 分、45.2 s**（`outputs/runs/20261105-105718-live-cc4441c2.json`，该次覆盖证据辩证，早于锦标赛接入）。
+> 新模块与红队修复后：`pytest -q` **192 passed**；`scripts/verify_all.sh` **PASS=6 FAIL=0**；离线 100/100，笔记哈希为 `80ce2e27…`（副标题改为六阶段后；改动前为 `dcda7315…`）；一次 LIVE 运行（intern-s2）**100 分、45.2 s**（`outputs/runs/20261105-105718-live-cc4441c2.json`，该次覆盖证据辩证，早于锦标赛接入）。
 
 ### 底座（让主线可信的地基）
 
@@ -112,8 +112,9 @@ python scripts/fetch_corpus.py
 | 项 | 最小可信实现 | 明确不做的事 |
 |----|--------------|--------------|
 | **多模态图表解析**（`figures.py` + `parse_figure` 工具） | 语料 52 篇中 **37 篇**有真实图表元数据（Europe PMC fullTextXML `<fig>`，共 **237 张图**，见 `data/corpus.json` 的 `figures` 字段与 `provenance.figures_fetch`）；图注做规则数值抽取（数值 + 单位 + pH/温度等条件），图表主张用 `[Pxxx:FigN]` 引用、走同一套接地判定（图注即证据文本） | 不做图像像素 OCR、不做视觉模型读图；其余 15 篇为非开放获取、无全文，如实记 `figures: []`，不编造 |
-| **MCP 封装**（`src/xingzhi_agent/mcp_server.py`，stdio） | 官方 MCP Python SDK v2（`mcp==2.3.0`；v2 把 FastMCP 更名为 MCPServer）薄封装 `literature_search` / `sequence_check` / `design_experiment` 三个工具，不重写工具逻辑；`python scripts/run_mcp_server.py` 启动，实测 `list_tools` 返回 3 个工具、`sequence_check` 经 MCP 的返回值与直接调用逐字段一致 | 离线 demo 不依赖 MCP（卸载 `mcp` 后仍可跑） |
+| **MCP 封装**（`src/xingzhi_agent/mcp_server.py`，stdio） | 官方 MCP Python SDK v2（`mcp==2.3.0`；v2 把 FastMCP 更名为 MCPServer）薄封装六个工具：`literature_search` / `sequence_check` / `design_experiment`（P0–P2）与 P3 新增的 `fit_binding_curve` / `design_protocol` / `analyze_smiles`，不重写工具逻辑；`python scripts/run_mcp_server.py` 启动，实测 `list_tools` 返回 6 个工具、`sequence_check` 经 MCP 的返回值与直接调用逐字段一致 | 离线 demo 不依赖 MCP（卸载 `mcp` 后仍可跑） |
 | **多智能体分工**（`roles.py`，`run_demo.py --team`，默认关闭） | 检索员 / 计算员 / 评审员三角色（提示词 + 工具子集 + 事件标签），步骤与账本打角色标签，UI 时间线按角色展示，账本 `outputs.roles` 汇总各角色工具调用数 | **单模型多角色编排**，不是多个独立智能体；不新增 LLM 调用；不引入 LangGraph/CrewAI 等重型框架 |
+| **P3 新工具：实验曲线拟合 / 实验方案 / 分子结构解析**（`curves.py` / `protocol.py` / `smiles.py`，纯标准库） | 4 参数 logistic 拟合结合曲线（EC50、Hill、R² + 质量标记，粘贴 CSV 可跑；合成曲线已知 EC50=100 nM 回收 100.00 nM、R²=1.0000）；C1V1=C2V2 稀释方案生成器（梯度、对照、读出、Go/No-Go；BLI 样例最高点 2.0 µL + 198.0 µL 缓冲液）；SMILES 限定子集解析（分子式/分子量/HBD/HBA/可旋转键/TPSA/Lipinski；咖啡因 C8H10N4O2、MW 194.19，TPSA 估算 66.4 Å² vs PubChem 公布 61.82 Å² 已注明偏差原因）；三工具均已进 MCP（共 6 个）与 UI 折叠面板，`scripts/run_p3_demo.py` 可复现（产物 `outputs/sample_p3.md`） | 默认离线闭环不调用新工具（笔记哈希仍为 `80ce2e27…`）；SMILES 不含立体化学与 % 环号 >9、有机金属除外；TPSA 与 logP 为估算值，不用于合规判定 |
 
 MCP 客户端配置示例（Claude Desktop / 任意 MCP 客户端）：
 
@@ -167,10 +168,10 @@ scripts/run_ui.py      一键启动 UI
 src/xingzhi_agent/     agent / llm / tools / verifier / grounding / repair / evidence / hypotheses / ledger / physchem / experiment / config
 data/corpus.json       52 篇 Europe PMC 真实文献语料
 outputs/               实验笔记产物（含 sample_lab_note.md / sample_live_lab_note.md）
-tests/                 144 项测试，离线全绿（含 fixtures/support_cases.json 手写样例）
+tests/                 192 项测试，离线全绿（含 fixtures/support_cases.json 手写样例）
 ```
 
-> **outputs/ 冻结快照**：截至 2026-11-05，顶层只保留 `latest_lab_note.md`、`sample_lab_note.md`、`sample_live_lab_note.md`、`sample_live_lab_note_100.md`、`SELF_REVIEW.md`、`last_run_manifest.json`、`ablation_generalization.json`、`baseline/`、`sample_runs/`；`runs/` 只保留 10 个代表性账本（022520、024142、024421、024557、024725、105718、150425、075904、075905、075909，其中后三者为最终定稿终验运行，离线笔记哈希 `80ce2e27…`）；其余历史产物见 `outputs/_archive/README.md`；保留账本内的路径均为相对路径。
+> **outputs/ 冻结快照**：截至 2026-11-05，顶层只保留 `latest_lab_note.md`、`sample_lab_note.md`、`sample_live_lab_note.md`、`sample_live_lab_note_100.md`、`SELF_REVIEW.md`、`last_run_manifest.json`、`ablation_generalization.json`、`baseline/`、`sample_runs/`；`runs/` 只保留 10 个代表性账本（022520-live、105718-live、114329-offline、150425-offline、162050、162054、184807、184958、185010、185014，离线笔记哈希 `80ce2e27…`）；其余历史产物见 `outputs/_archive/README.md`；保留账本内的路径均为相对路径。
 
 ---
 
@@ -241,7 +242,7 @@ INTERNLM_RETRIES=2
 
 ## 8. 提交前检查清单
 
-- [ ] `pytest -q` 全绿（**144 项**）
+- [ ] `pytest -q` 全绿（**192 项**）
 - [ ] `bash scripts/verify_all.sh` 输出 `ALL PASS`（PASS=6 FAIL=0）
 - [ ] `python scripts/run_demo.py --mode offline` 成功写出笔记，校验 100/100
 - [ ] `python scripts/run_ui.py` 可打开，点击「启动闭环」时间线正常
@@ -266,7 +267,7 @@ INTERNLM_RETRIES=2
 | 真实 API（intern-s2）连跑 4 次 | 95 / 95 / 96 / 100 分，每次 87–105 秒，均一轮达标无需重写 |
 | 引用接地率 | 原始 34–59% → 经确定性引用对齐后 91–100% |
 | 早期对照运行 | 自修复环 70 → 70 → 81（耗时 2190 秒；第 3 轮因连接错误失败、分数为 None）——这正是后来加入引用对齐与重写时间预算的原因 |
-| 测试 | `pytest -q` 144 passed |
+| 测试 | `pytest -q` 192 passed |
 | 证据辩证（离线） | 直接支持 11 / 过度表述 0 / 无支撑 0；语料实质分歧 3 处；支撑分级样例 10/10、分歧判型样例 6/6（自写小样例） |
 | 假设锦标赛（离线） | 6 个假设（2 冲突+4 缺口）· 15 场 · 冠军 H02（Elo 1054.5 · 存活分 54 · contest 1 · support=[P007] · counter=[P024]） |
 | 新模块后 LIVE | 100 分，45.2 秒（`outputs/runs/20261105-105718-live-cc4441c2.json`） |

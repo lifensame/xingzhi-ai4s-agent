@@ -373,6 +373,23 @@ def build_llm(settings: Settings) -> Any:
 
 _TOOL_JSON_RE = re.compile(r"\{[\s\S]*\"tool\"[\s\S]*\}")
 
+# 模型常在 Markdown 表格里把 | 写成 \|（如净电荷阈值 |q|），而 JSON 只认
+# \" \\ \/ \b \f \n \r \t \uXXXX：\| 会让整段调用解析失败，主循环空转到
+# max_steps（2026-11-05 两次 LIVE 实测因此失败）。严格解析失败时，去掉
+# 非法转义的反斜杠再试一次（仅回退路径；合法 JSON 行为不变）。
+_INVALID_ESCAPE_RE = re.compile(r"\\(?![\"\\/bfnrtu])")
+
+
+def _lenient_json_loads(raw: str) -> Any | None:
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        pass
+    try:
+        return json.loads(_INVALID_ESCAPE_RE.sub("", raw))
+    except json.JSONDecodeError:
+        return None
+
 
 def parse_tool_call(text: str) -> dict[str, Any] | None:
     """从模型输出中提取单个工具调用 JSON。"""
@@ -386,9 +403,8 @@ def parse_tool_call(text: str) -> dict[str, Any] | None:
         candidates.insert(0, match.group(0))
 
     for raw in candidates:
-        try:
-            obj = json.loads(raw)
-        except json.JSONDecodeError:
+        obj = _lenient_json_loads(raw)
+        if obj is None:
             continue
         if isinstance(obj, dict) and "tool" in obj:
             args = obj.get("args") or obj.get("arguments") or obj.get("parameters")

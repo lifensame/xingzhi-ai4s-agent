@@ -1,4 +1,4 @@
-"""工具层：文献检索 / 序列校验 / 写实验笔记。"""
+"""工具层：文献检索 / 序列校验 / 写实验笔记 / 曲线拟合 / 方案生成 / 分子解析（P3）。"""
 
 from __future__ import annotations
 
@@ -11,9 +11,13 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
+from .curves import fit_4pl as _fit_4pl
+from .curves import parse_curve_csv as _parse_curve_csv
 from .experiment import design_experiment as _design_experiment
 from .figures import parse_figure as _parse_figure
 from .physchem import analyze as _physchem
+from .protocol import design_protocol as _design_protocol
+from .smiles import describe as _describe_smiles
 
 AA_RE = re.compile(r"^[ACDEFGHIKLMNPQRSTVWY]+$", re.I)
 
@@ -249,6 +253,106 @@ def design_experiment(
     )
 
 
+def fit_binding_curve(
+    csv_text: str = "",
+    points: list | None = None,
+) -> ToolResult:
+    """P3：4PL 结合曲线拟合 / fit a 4-parameter logistic dose–response curve.
+
+    入参二选一：csv_text（粘贴的浓度,响应两列文本）或 points（[[浓度, 响应], ...]）。
+    拟合失败（点太少、浓度非正、格式错）返回 ok=False 的可观测结果，不抛出。
+    """
+    try:
+        if points:
+            parsed = [(float(p[0]), float(p[1])) for p in points]
+        elif csv_text and str(csv_text).strip():
+            parsed = _parse_curve_csv(str(csv_text))
+        else:
+            return ToolResult(
+                ok=False, name="fit_binding_curve", data={},
+                summary="曲线拟合失败：请提供 csv_text（浓度,响应两列文本）或 points（[[浓度, 响应], ...]）",
+            )
+        res = _fit_4pl(parsed)
+    except ValueError as exc:
+        return ToolResult(
+            ok=False, name="fit_binding_curve", data={"error": str(exc)},
+            summary=f"曲线拟合失败：{exc}",
+        )
+    data = res.as_dict()
+    summary = (
+        f"曲线拟合完成：EC50={res.ec50:.4g}，Hill={res.hill:.2f}，"
+        f"top={res.top:.2f}，bottom={res.bottom:.2f}，R²={res.r2:.4f}，"
+        f"质量 {res.quality}"
+        + (f"（{'; '.join(res.reasons)}）" if res.reasons else "")
+    )
+    return ToolResult(ok=True, name="fit_binding_curve", data=data, summary=summary)
+
+
+def design_protocol(
+    stock_concentration: Any = "",
+    target_concentration: Any = "",
+    final_volume: Any = "",
+    replicates: int = 3,
+    *,
+    stock_unit: str | None = None,
+    target_unit: str | None = None,
+    volume_unit: str | None = None,
+    assay: str = "BLI",
+    target_name: str = "EGFR",
+    series_points: int = 5,
+    series_fold: float = 3.0,
+) -> ToolResult:
+    """P3：实验方案生成 / dilution-series protocol (C1V1=C2V2).
+
+    浓度/体积可传数值 + 单位参数，或直接传 "10 mM" / "1 mL" 字符串。
+    目标浓度高于储备液时返回 ok=False，不静默截断。
+    """
+    try:
+        plan = _design_protocol(
+            stock_concentration, target_concentration, final_volume,
+            replicates=int(replicates),
+            stock_unit=stock_unit, target_unit=target_unit, volume_unit=volume_unit,
+            assay=str(assay), target_name=str(target_name),
+            series_points=int(series_points), series_fold=float(series_fold),
+        )
+    except (ValueError, TypeError) as exc:
+        return ToolResult(
+            ok=False, name="design_protocol", data={"error": str(exc)},
+            summary=f"实验方案生成失败：{exc}",
+        )
+    data = plan.as_dict()
+    data["markdown"] = plan.to_markdown()
+    summary = (
+        f"实验方案已生成：{plan.assay}，{plan.replicates} 重复 × {len(plan.series)} 点梯度，"
+        f"最高点 {plan.single_point['stock_ul']} µL 储备液/中间液 + "
+        f"{plan.single_point['buffer_ul']} µL 缓冲液（每 {plan.final_volume_ul:.4g} µL）"
+        + (f"；提示 {len(plan.warnings)} 条" if plan.warnings else "")
+    )
+    return ToolResult(ok=True, name="design_protocol", data=data, summary=summary)
+
+
+def analyze_smiles(smiles: str) -> ToolResult:
+    """P3：分子结构解析 / SMILES descriptors (formula, MW, HBD/HBA, TPSA, Lipinski).
+
+    不在支持子集内（立体化学、%nn 环、多组分、不支持的元素等）返回 ok=False 并说明原因。
+    """
+    try:
+        data = _describe_smiles(str(smiles or "").strip())
+    except ValueError as exc:
+        return ToolResult(
+            ok=False, name="analyze_smiles",
+            data={"smiles": str(smiles or ""), "error": str(exc)},
+            summary=f"分子解析失败：{exc}",
+        )
+    lip = data["lipinski"]["verdict"]
+    summary = (
+        f"分子解析完成：{data['formula']}，MW {data['molecular_weight']}，"
+        f"HBD {data['hbd']} / HBA {data['hba']}，可旋转键 {data['rotatable_bonds']}，"
+        f"TPSA {data['tpsa']} Å²，Lipinski {lip}"
+    )
+    return ToolResult(ok=True, name="analyze_smiles", data=data, summary=summary)
+
+
 def write_note(
     outputs_dir: Path,
     title: str,
@@ -340,6 +444,30 @@ def _run_tool_inner(
             if ok else f"图表解析失败：{res.get('error', '未知错误')}"
         )
         return ToolResult(ok=ok, name="parse_figure", data=res, summary=summary)
+    if name == "fit_binding_curve":
+        # P3：4PL 曲线拟合——csv_text 与 points 二选一（points 为 [[浓度, 响应], ...]）
+        return fit_binding_curve(
+            csv_text=str(args.get("csv_text", "") or ""),
+            points=args.get("points"),
+        )
+    if name == "design_protocol":
+        # P3：稀释梯度实验方案——浓度/体积可传数值+单位，或直接传 "10 mM" 字符串
+        return design_protocol(
+            stock_concentration=args.get("stock_concentration", ""),
+            target_concentration=args.get("target_concentration", ""),
+            final_volume=args.get("final_volume", ""),
+            replicates=_coerce_int(args.get("replicates", 3), 3),
+            stock_unit=args.get("stock_unit"),
+            target_unit=args.get("target_unit"),
+            volume_unit=args.get("volume_unit"),
+            assay=str(args.get("assay", "BLI")),
+            target_name=str(args.get("target_name", "EGFR")),
+            series_points=_coerce_int(args.get("series_points", 5), 5),
+            series_fold=_coerce_float(args.get("series_fold", 3.0), 3.0),
+        )
+    if name == "analyze_smiles":
+        # P3：SMILES 分子解析——不在支持子集内时返回明确失败，不静默猜测
+        return analyze_smiles(smiles=str(args.get("smiles", "")))
     if name == "write_note":
         return write_note(
             outputs_dir,

@@ -440,6 +440,91 @@ else:
     else:
         empty_state("暂无账本", "首次运行后会记录模型、逐步延迟、token、seed 与停止原因。", "🧾")
 
+st.markdown("#### 🧪 P3 实验工具（手动触发，不进入闭环）")
+st.caption("以下三项只在点击按钮时运行一次，不参与「启动闭环」的主流程，不改写实验笔记与运行账本。")
+
+with st.expander("📈 实验曲线拟合（4PL）", expanded=False):
+    _fixture = ROOT / "tests" / "fixtures" / "binding_curve_ec50_100.csv"
+    _default_csv = _fixture.read_text(encoding="utf-8") if _fixture.is_file() else (
+        "concentration,response\n1,99.01\n3,97.09\n10,90.91\n30,76.92\n100,50.00\n"
+        "300,25.00\n1000,9.09\n3000,3.23\n10000,0.99\n"
+    )
+    curve_text = st.text_area(
+        "粘贴浓度,响应两列数据（可带表头，逗号/制表符/分号/空白分隔）",
+        value=_default_csv, height=180, key="p3_curve_csv",
+    )
+    if st.button("拟合曲线", key="p3_fit_btn"):
+        from xingzhi_agent.tools import fit_binding_curve  # noqa: E402
+
+        res = fit_binding_curve(csv_text=curve_text)
+        if res.ok:
+            d = res.data
+            c1, c2, c3 = st.columns(3)
+            c1.metric("EC50", f"{d['ec50']:.4g}（与输入浓度同单位）")
+            c2.metric("Hill 斜率", f"{d['hill']:.2f}")
+            c3.metric("R²", f"{d['r2']:.4f}")
+            st.markdown(
+                f"top {d['top']:.2f} · bottom {d['bottom']:.2f} · 数据点 {d['n_points']} · "
+                f"质量 **{d['quality']}**"
+                + (f"（{'; '.join(d['reasons'])}）" if d["reasons"] else "")
+            )
+        else:
+            st.error(res.summary)
+    st.caption("确定性网格 + 精修拟合（纯标准库）；数据点 < 5 或浓度非正时明确报错；EC50 落在数据范围外会标记为外推。")
+
+with st.expander("🧪 分子结构（SMILES）", expanded=False):
+    smiles_in = st.text_input(
+        "SMILES（支持 C/N/O/S/P/F/Cl/Br 与芳香小写；不支持立体化学、%nn 环、多组分）",
+        value="Cn1cnc2c1c(=O)n(C)c(=O)n2C", key="p3_smiles",
+    )
+    if st.button("解析分子", key="p3_smiles_btn"):
+        from xingzhi_agent.tools import analyze_smiles  # noqa: E402
+
+        res = analyze_smiles(smiles_in)
+        if res.ok:
+            d = res.data
+            st.markdown(
+                f"**{d['formula']}** · 分子量 {d['molecular_weight']} Da · "
+                f"H 键供体 {d['hbd']} / 受体 {d['hba']} · 可旋转键 {d['rotatable_bonds']} · "
+                f"TPSA {d['tpsa']} Å²（Ertl 估算） · logP 估算 {d['logp_estimate']} · "
+                f"Lipinski **{d['lipinski']['verdict']}**"
+            )
+            if d["lipinski"]["violations"]:
+                st.warning("违反：" + "；".join(d["lipinski"]["violations"]))
+            st.caption(d["lipinski"]["note"])
+        else:
+            st.error(res.summary)
+    st.caption("示例为咖啡因；TPSA 与 logP 均为片段估算值，仅供参考，不作合规结论。")
+
+with st.expander("🧫 实验方案（稀释梯度与对照）", expanded=False):
+    pc1, pc2 = st.columns(2)
+    with pc1:
+        stock_v = st.number_input("储备液浓度", value=10.0, min_value=0.0, key="p3_stock_v")
+        stock_u = st.selectbox("储备液单位", ["mM", "µM", "nM"], index=0, key="p3_stock_u")
+        target_v = st.number_input("目标浓度（梯度最高点）", value=100.0, min_value=0.0, key="p3_target_v")
+        target_u = st.selectbox("目标单位", ["nM", "µM", "mM"], index=0, key="p3_target_u")
+    with pc2:
+        vol_v = st.number_input("每孔终体积", value=200.0, min_value=0.0, key="p3_vol_v")
+        vol_u = st.selectbox("体积单位", ["µL", "mL"], index=0, key="p3_vol_u")
+        reps = st.slider("重复数", 1, 6, 3, key="p3_reps")
+        assay = st.selectbox("读出方法", ["BLI", "SPR", "ELISA", "SEC-HPLC"], index=0, key="p3_assay")
+    target_name = st.text_input("靶点", value="EGFR", key="p3_target_name")
+    if st.button("生成方案", key="p3_protocol_btn"):
+        from xingzhi_agent.tools import design_protocol  # noqa: E402
+
+        res = design_protocol(
+            stock_v, target_v, vol_v, replicates=reps,
+            stock_unit=stock_u, target_unit=target_u, volume_unit=vol_u,
+            assay=assay, target_name=target_name or "EGFR",
+        )
+        if res.ok:
+            st.markdown(res.data["markdown"])
+            for w in res.data.get("warnings", []):
+                st.warning(w)
+        else:
+            st.error(res.summary)
+    st.caption("C1V1=C2V2 纯算术；目标浓度高于储备液时明确报错；最高点移液 < 1 µL 时自动改走 100× 中间稀释。")
+
 render_run_history()
 
 st.markdown(
